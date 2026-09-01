@@ -1,0 +1,338 @@
+/* ==========================================================================
+   Bach Architecture — recreated static site
+   Design tokens up top so spacing/typography variations are easy to make.
+   Values transcribed from the original Divi build at bach-architecture.com.
+   ========================================================================== */
+
+:root {
+  /* Color */
+  --color-bg: #7e7e7e;            /* body + most sections */
+  --color-band-title: #686868;    /* project title band */
+  --color-header-bg: #7e7e7e;
+  --color-text: #ffffff;
+  --color-link: #ffffff;
+  --color-accent: #f48b2e;        /* current-page nav highlight */
+  --color-submenu-link: rgba(255, 255, 255, 0.7);
+  /* Typography */
+  --font-body: 'Abel', Helvetica, Arial, Lucida, sans-serif;
+  --font-size-body: 14px;
+  --font-size-h4: 18px;
+  --font-size-nav: 14px;
+  --font-size-siteinfo: 11px;
+  --line-height-body: 1.7em;
+  --nav-letter-spacing: 1px;
+
+  /* Layout */
+  --header-height: 84px;
+  --row-width: 80%;
+  --row-max-width: 1080px;
+  --gutter: 5.5%;                 /* Divi gutters3 column gap */
+  --gallery-height: 540px;
+}
+
+@font-face {
+  font-family: 'Abel';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/abel.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'ger';
+  font-style: normal;
+  font-weight: 400;
+  font-display: fallback;
+  src: url('../fonts/ger.woff') format('woff');
+}
+
+/* Reset ------------------------------------------------------------------ */
+
+* { margin: 0; padding: 0; border: 0; box-sizing: content-box; }
+ol, ul { list-style: none; }
+img { max-width: 100%; height: auto; vertical-align: bottom; }
+article, aside, footer, header, main, nav, section { display: block; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  font-weight: 500;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a { color: var(--color-link); text-decoration: none; }
+p { padding-bottom: 1em; }
+p:last-of-type { padding-bottom: 0; }
+strong, b { font-weight: 700; }
+em, i { font-style: italic; }
+hr { border-top: 1px solid var(--color-text); margin-bottom: 1em; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  padding-bottom: 10px;
+  line-height: 1em;
+  font-weight: 500;
+}
+h1 { font-size: 30px; }
+h2 { font-size: 26px; }
+h3 { font-size: 22px; }
+h4 { font-size: var(--font-size-h4); }
+h5 { font-size: 16px; }
+h6 { font-size: 14px; }
+
+.clearfix::after { content: ""; display: table; clear: both; }
+
+/* Header ----------------------------------------------------------------- */
+
+#page-container { padding-top: var(--header-height); }
+
+#site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99999;
+  background-color: var(--color-header-bg);
+}
+
+#site-header .container {
+  width: var(--row-width);
+  max-width: var(--row-max-width);
+  margin: auto;
+  position: relative;
+  height: var(--header-height);
+}
+
+.logo_container {
+  position: absolute;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+#logo { max-height: 42px; width: auto; }
+
+#site-nav { float: right; padding-top: 33px; }
+
+#top-menu { line-height: 0; }
+#top-menu > li { display: inline-block; font-size: var(--font-size-nav); padding-right: 22px; }
+#top-menu > li:last-child { padding-right: 0; }
+#top-menu a {
+  color: var(--color-text);
+  font-weight: bold;
+  letter-spacing: var(--nav-letter-spacing);
+  display: block;
+  position: relative;
+  transition: opacity 0.4s ease-in-out;
+}
+#top-menu > li > a { padding-bottom: 33px; }
+#top-menu > li > a:hover { opacity: 0.7; }
+#top-menu li.current-menu-item > a,
+#top-menu li.current-menu-ancestor > a { color: var(--color-accent); }
+
+/* Dropdowns */
+#top-menu li { position: relative; }
+#top-menu li ul {
+  position: absolute;
+  top: auto;
+  left: 0;
+  z-index: 9999;
+  width: 240px;
+  padding: 20px 0;
+  background-color: var(--color-header-bg);
+  border-top: 3px solid #ffffff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+}
+#top-menu li li { padding: 0 20px; margin: 0; display: block; line-height: 1.7em; }
+#top-menu li li a {
+  padding: 6px 20px;
+  width: 200px;
+  font-weight: normal;
+  color: var(--color-submenu-link);
+}
+#top-menu li li a:hover { opacity: 0.7; background-color: rgba(0, 0, 0, 0.03); }
+#top-menu li:hover > ul { visibility: visible; opacity: 1; }
+
+/* second-level flyouts */
+#top-menu li li ul {
+  top: -23px;
+  left: 240px;
+}
+
+/* Mobile menu toggle */
+#menu-toggle {
+  display: none;
+  background: none;
+  color: var(--color-text);
+  font-size: 32px;
+  line-height: 1;
+  float: right;
+  margin-top: 24px;
+  cursor: pointer;
+}
+
+/* Content bands ---------------------------------------------------------- */
+
+.band { background-color: var(--color-bg); }
+.band .row {
+  width: var(--row-width);
+  max-width: var(--row-max-width);
+  margin: auto;
+  position: relative;
+  padding: 2% 0;
+}
+
+.band-title { background-color: var(--color-band-title); padding-top: 20px; padding-bottom: 20px; }
+.band-title .row { padding: 0; }
+.band-title h4 { padding-bottom: 0; line-height: 1.7em; }
+
+.band-gallery { padding-top: 0; padding-bottom: 0; }
+.band-gallery .row { padding-top: 0; padding-bottom: 0; }
+
+.band-info { padding-top: 45px; padding-bottom: 0; }
+.band-info .row { padding-top: 0; margin-top: 0; }
+
+/* Columns (Divi gutters3 widths) */
+.col { float: left; margin-right: var(--gutter); min-height: 1px; }
+.col:last-child { margin-right: 0; }
+.col-1-2 { width: 47.25%; }
+.col-1-3 { width: 29.6667%; }
+.col-2-3 { width: 64.833%; }
+.col-4-4 { width: 100%; float: none; }
+
+.module { margin-bottom: 2.75%; }
+.col-1-3 .module { margin-bottom: 9.27%; }
+.col-2-3 .module { margin-bottom: 4.242%; }
+.col-1-2 .module { margin-bottom: 5.82%; }
+
+/* Press logos in credit columns */
+.press-title { margin-top: 30px; max-width: 180px; padding-top: 0; }
+.press-logo { margin-bottom: 15px; max-width: 115px; text-align: left; margin-left: 0; }
+.press-logo img { width: auto; }
+
+/* Site info band (the © line at the bottom of every page) */
+.band-siteinfo .row { padding-top: 0; margin-top: 20px; padding-bottom: 2%; }
+.band-siteinfo p { font-size: var(--font-size-siteinfo); text-align: center; }
+
+/* Gallery (ba-gallery plugin, transcribed) ------------------------------- */
+
+#ba-wrapper { height: var(--gallery-height); }
+
+.ba-thumb {
+  height: 90px;
+  width: auto;
+  margin: 5px 5px;
+  cursor: pointer;
+}
+
+#ba-thumbs {
+  width: 33%;
+  margin-right: 10px;
+  display: flex;
+  flex-flow: row wrap;
+  float: left;
+  position: relative;
+  align-content: flex-start;
+}
+
+.ba-preview-wrap {
+  width: 63%;
+  margin-left: 12px;
+  height: var(--gallery-height);
+  float: left;
+  background-position: 0 0 !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+}
+
+#gallery_loading {
+  width: 100%;
+  height: 100%;
+  background: #7e7e7e !important;
+  position: absolute;
+  font-size: 18px;
+  color: #fff;
+  text-align: center;
+  line-height: 100px;
+  display: none;
+}
+
+/* Home ------------------------------------------------------------------- */
+
+.band-home { padding-top: 2%; padding-bottom: 2%; }
+.band-home .row { padding: 2% 0; }
+.home-hero img { width: 100%; height: auto; }
+
+/* About / Bio / Contact --------------------------------------------------- */
+
+.bio-photo {
+  background-size: cover;
+  background-position: center;
+  min-height: 400px;
+}
+
+.map-wrap { position: relative; }
+.map-wrap iframe {
+  width: 100%;
+  height: 440px;
+  filter: grayscale(100%);
+  display: block;
+}
+
+/* Responsive -------------------------------------------------------------- */
+
+@media screen and (max-width: 1024px) {
+  .ba-thumb { height: 50px; margin: 2px 2px; }
+}
+
+@media all and (max-width: 980px) {
+  #site-nav { display: none; float: none; padding: 0; }
+  #menu-toggle { display: block; }
+
+  /* mobile menu panel */
+  #site-nav.open {
+    display: block;
+    position: absolute;
+    top: var(--header-height);
+    left: 0;
+    width: 90%;
+    padding: 5%;
+    background: var(--color-header-bg);
+    border-top: 3px solid #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  #site-nav.open #top-menu > li { display: block; padding: 0; }
+  #site-nav.open #top-menu a { padding: 10px 5%; border-bottom: 1px solid rgba(0, 0, 0, 0.03); }
+  #site-nav.open #top-menu li ul {
+    position: static;
+    visibility: visible;
+    opacity: 1;
+    width: auto;
+    padding: 0 0 0 10px;
+    border: 0;
+    box-shadow: none;
+  }
+  #site-nav.open #top-menu li li { padding: 0; }
+  #site-nav.open #top-menu li li a { width: auto; }
+
+  .col, .col-1-2, .col-1-3, .col-2-3 { width: 100%; float: none; margin-right: 0; }
+  .band .row { padding: 30px 0; }
+  .band-title, .band-info, .band-siteinfo { padding-top: 0; padding-bottom: 0; }
+}
+
+@media screen and (max-width: 736px) {
+  #ba-wrapper { height: auto; }
+  .ba-thumb { height: 21px; margin: 2px 2px; }
+  .ba-preview-wrap { height: 170px; width: 55%; }
+  #ba-thumbs { width: 33%; }
+  .band { padding-top: 10px; padding-bottom: 10px; }
+}
