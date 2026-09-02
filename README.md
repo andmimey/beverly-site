@@ -10,11 +10,14 @@ about/                         About the firm + Beverly's bio
 about/bio/                     redirect to about/#bio (About + Bio share one page)
 contact/                       Address + map
 nebulate/                      Nebulate (teaching)
+work/                          project overview grid (category jump links)
 work/residential/<project>/    12 residential projects (incl. three-peaks-house)
 work/institutional/<project>/  3 institutional projects
 work/furniture/<project>/      3 furniture projects
 work/teaching/<project>/       9 teaching projects
-css/style.css                  Single shared stylesheet, design tokens at top
+css/style.css                  base + Classic theme, design tokens at top
+css/study.css + light/dark.css Light & Dark studies (structure + token skins)
+guidelines/                    living design-guidelines page (renders in all 3 themes)
 js/site.js                     Gallery hover-swap + mobile menu
 images/                        All site images (paths mirror the old wp-content/uploads/)
 images/three-peaks/            Three Peaks House photos + floor plans (from Drive)

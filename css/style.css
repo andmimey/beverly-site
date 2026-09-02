@@ -352,6 +352,10 @@ main > .band-siteinfo { margin-top: auto; }
 /* Work overview page ------------------------------------------------------ */
 
 .band-workindex .row { padding-top: 2%; }
+.wi-jump { padding-bottom: 24px; }
+.wi-jump a { margin-right: 22px; font-weight: bold; letter-spacing: 1px; }
+.wi-jump a:hover { opacity: 0.7; }
+.wi-cat { scroll-margin-top: calc(var(--header-height) + 16px); }
 .wi-cat { font-size: 14px; font-weight: 700; letter-spacing: 1px; padding: 30px 0 12px; }
 .wi-grid {
   display: grid;
@@ -364,12 +368,17 @@ main > .band-siteinfo { margin-top: auto; }
 .wi-item:hover .wi-img img { opacity: 0.85; }
 .wi-name { display: block; padding-top: 6px; }
 
+/* Prev/next project navigation: only the Light/Dark studies show it */
+.proj-nav { display: none; }
+
 /* About / Bio / Contact --------------------------------------------------- */
 
 .firm-img {
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
+  /* keep heads and skylights: bias the square crop toward the top */
+  object-position: 50% 18%;
   display: block;
 }
 

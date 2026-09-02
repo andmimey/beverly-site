@@ -14,6 +14,14 @@
   src: url('../fonts/archivo-var.woff2') format('woff2');
 }
 
+/* Spacing scale: exactly three steps everywhere.
+   S 8px (micro: thumb gaps), M 24px (intra-section), L 64px (between chapters). */
+:root {
+  --s: 8px;
+  --m: 24px;
+  --l: 64px;
+}
+
 body { font-weight: 400; }
 
 /* Masthead: tight, wordmark set live in Germano (the site's own logo face),
@@ -54,7 +62,7 @@ body { font-weight: 400; }
 
 /* Project title: quiet, monograph-scale ---------------------------------- */
 
-.band-title { padding-top: 48px; padding-bottom: 0; }
+.band-title { padding-top: var(--l); padding-bottom: 0; }
 .band-title h4 {
   font-size: var(--font-size-h4);
   font-weight: 700;
@@ -67,7 +75,7 @@ body { font-weight: 400; }
 
 /* Gallery: full-width plate, contact sheet beneath ------------------------ */
 
-.band-gallery .row { padding-top: 20px; padding-bottom: 0; }
+.band-gallery .row { padding-top: var(--m); padding-bottom: 0; }
 
 #ba-wrapper {
   display: flex;
@@ -89,12 +97,12 @@ body { font-weight: 400; }
 #ba-thumbs {
   float: none;
   width: 100%;
-  margin: 24px 0 0;
+  margin: var(--m) 0 0;
 }
 
 .ba-thumb {
   height: 52px;
-  margin: 0 8px 8px 0;
+  margin: 0 var(--s) var(--s) 0;
   transition: opacity 160ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 #ba-thumbs:hover .ba-thumb { opacity: 0.55; }
@@ -107,19 +115,48 @@ body { font-weight: 400; }
 
 /* Work overview ----------------------------------------------------------- */
 
-.band-workindex .row { padding-top: 8px; }
+.band-workindex .row { padding-top: var(--m); }
 .wi-cat {
   font-size: 14px;
   font-weight: 500;
   letter-spacing: 0.06em;
-  padding: 40px 0 14px;
+  padding: var(--l) 0 var(--m);
 }
 .wi-cat:first-child { padding-top: 0; }
+.wi-jump { padding-bottom: var(--m); }
+.wi-jump a {
+  margin-right: var(--m);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.wi-jump a:hover { color: var(--color-accent-text); }
+.wi-cat { scroll-margin-top: calc(var(--header-height) + var(--m)); }
 .wi-item:hover .wi-name { color: var(--color-accent-text); }
+
+/* Prev / next project ----------------------------------------------------- */
+
+.proj-nav { display: block; background-color: var(--color-bg); }
+.proj-nav .row {
+  width: var(--row-width);
+  max-width: var(--row-max-width);
+  margin: auto;
+  padding-top: var(--l);
+  display: flex;
+  justify-content: space-between;
+  gap: var(--m);
+}
+.proj-nav a {
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.proj-nav a:hover { color: var(--color-accent-text); }
+.proj-nav .pn-next { margin-left: auto; }
 
 /* Info: whitespace instead of rules --------------------------------------- */
 
-.band-info { padding-top: 72px; }
+.band-info { padding-top: var(--l); }
 .band-info .row { padding-top: 0; }
 
 .band-info .col-1-3 strong,
@@ -131,7 +168,7 @@ body { font-weight: 400; }
 }
 .band-info .col-1-3 strong + br,
 .band-info .col-1-3 b + br { display: none; }
-.band-info .col-1-3 p { padding-bottom: 1.3em; }
+.band-info .col-1-3 p { padding-bottom: var(--m); }
 .band-info .col-1-3 hr { display: none; }
 
 .col-2-3 p {
@@ -147,15 +184,15 @@ body { font-weight: 400; }
    below 1000px — the three segments never wrap mid-group ----------------- */
 
 .band-siteinfo .row {
-  margin-top: 96px;
+  margin-top: var(--l);
   padding-top: 0;
-  padding-bottom: 40px;
+  padding-bottom: var(--m);
 }
 .band-siteinfo p {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  gap: 8px 32px;
+  gap: var(--s) var(--m);
   text-align: left;
 }
 .band-siteinfo .si-sep { display: none; }
@@ -166,7 +203,7 @@ body { font-weight: 400; }
 
 /* Home: photography close to the top -------------------------------------- */
 
-.band-home .row { padding-top: 32px; }
+.band-home .row { padding-top: var(--m); }
 
 /* The lower-right render carries a pink/lavender cast the photographs
    don't; pull it toward the collage's muted neutrals */
@@ -174,9 +211,9 @@ body { font-weight: 400; }
 
 /* About / Bio / Contact --------------------------------------------------- */
 
-.band .row { padding-top: 40px; padding-bottom: 0; }
+.band .row { padding-top: var(--l); padding-bottom: 0; }
 .band-title .row, .band-gallery .row, .band-info .row, .band-workindex .row { padding-bottom: 0; }
-#bio .row { padding-top: 72px; }
+#bio .row { padding-top: var(--l); }
 
 /* Style switcher ---------------------------------------------------------- */
 
@@ -202,6 +239,11 @@ body { font-weight: 400; }
   transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+:is(a, button):focus-visible {
+  outline: 2px solid var(--color-accent-mark);
+  outline-offset: 2px;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     transition-duration: 0.01ms !important;
@@ -217,9 +259,9 @@ body { font-weight: 400; }
   .band-siteinfo p {
     flex-direction: column;
     align-items: flex-start;
-    gap: 4px;
+    gap: var(--s);
   }
-  .band-siteinfo .row { margin-top: 64px; }
+  .band-siteinfo .row { margin-top: var(--l); }
 }
 
 @media all and (max-width: 980px) {
@@ -229,12 +271,12 @@ body { font-weight: 400; }
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
   }
   #site-nav.open #top-menu a { border-bottom-color: var(--keyline); }
-  .band-title { padding-top: 32px; }
-  .band-info { padding-top: 48px; }
+  .band-title { padding-top: var(--m); }
+  .band-info { padding-top: var(--l); }
 }
 
 @media screen and (max-width: 1024px) {
-  .ba-thumb { height: 44px; margin: 0 6px 6px 0; }
+  .ba-thumb { height: 44px; margin: 0 var(--s) var(--s) 0; }
 }
 
 @media screen and (max-width: 736px) {
@@ -243,7 +285,7 @@ body { font-weight: 400; }
     height: 44vh;
     min-height: 260px;
   }
-  #ba-thumbs { width: 100%; margin-top: 14px; }
-  .ba-thumb { height: 30px; margin: 0 4px 4px 0; }
-  .band-title { padding-top: 24px; }
+  #ba-thumbs { width: 100%; margin-top: var(--s); }
+  .ba-thumb { height: 30px; margin: 0 var(--s) var(--s) 0; }
+  .band-title { padding-top: var(--m); }
 }
