@@ -203,6 +203,7 @@ a:hover { color: var(--color-accent-text); }
 }
 .col-1-3 strong + br,
 .col-1-3 b + br { display: none; }
+.col-1-3 .kicker { font-weight: bold; }
 .band-info .col-1-3 p { padding-bottom: var(--m); }
 .band-info .col-1-3 hr { display: none; }
 
