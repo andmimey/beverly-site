@@ -19,7 +19,7 @@ Register: the architecture monograph — stark, with warmth and playfulness carr
 - **One typeface, one size**: Archivo (grotesque, self-hosted variable) at 14px everywhere; hierarchy is weight only (400 prose, 500 nav/labels, 700 titles/kickers) plus uppercase at a uniform 0.06em tracking. The wordmark is the only larger element: "BACH ARCHITECTURE" set live at 21px in Germano — the actual logo face recovered from the old site's Use Any Font upload (`fonts/ger.woff`).
 - **Orange words, not marks**: current nav item, subnav current, nav hover, and project-name hover all turn orange (Light #b04f08, Dark #ffb877). No underlines, no divider lines, **no borders on any images**.
 - **Masthead**: tight (64px), hides on scroll down, returns on scroll up (Classic keeps its always-fixed header). Reduced-motion disables the slide.
-- **No dropdowns**: WORK goes to the `work/` overview page (all 28 projects as an image grid grouped by category); FIRM goes to About, with an About/Bio subnav on those pages (hidden in Classic).
+- **No dropdowns**: WORK goes to the `work/` overview page (all 28 projects as an image grid grouped by category); FIRM goes to the combined About page (firm statement stacked above the biography; `about/bio/` redirects to `about/#bio`).
 - **Gallery**: full-width plate flush-left (66vh contain), contact-sheet strip beneath, hovered frame lit with an orange outline while the strip dims.
 - **Footer**: © / address / phone+email spread left-middle-right on wide screens; below 1000px it stacks flush-left in order. The Classic centered pipe line renders from the same spans.
 

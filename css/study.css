@@ -117,22 +117,6 @@ body { font-weight: 400; }
 .wi-cat:first-child { padding-top: 0; }
 .wi-item:hover .wi-name { color: var(--color-accent-text); }
 
-/* Firm sub-navigation (About / Bio), hidden in Classic -------------------- */
-
-.firm-subnav {
-  display: flex;
-  gap: 28px;
-  padding-bottom: 32px;
-}
-.firm-subnav a {
-  font-size: 14px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
-.firm-subnav a:hover { color: var(--color-accent-text); }
-.firm-subnav a.current { color: var(--color-accent-text); }
-
 /* Info: whitespace instead of rules --------------------------------------- */
 
 .band-info { padding-top: 72px; }

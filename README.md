@@ -6,8 +6,8 @@ Static recreation of [bach-architecture.com](https://bach-architecture.com/) (or
 
 ```
 index.html                     Home
-about/                         About the firm
-about/bio/                     Beverly's bio
+about/                         About the firm + Beverly's bio
+about/bio/                     redirect to about/#bio (About + Bio share one page)
 contact/                       Address + map
 nebulate/                      Nebulate (teaching)
 work/residential/<project>/    12 residential projects (incl. three-peaks-house)
