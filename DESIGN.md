@@ -13,15 +13,16 @@ Two themes over one markup. `css/style.css` is the faithful transcription of the
 - **Layout**: fixed 99px header; 80% row width, max 1080px; Divi gutters (5.5%, columns 29.67/47.25/64.83%); hover-swap gallery (thumbs 33% left, preview 63%).
 - Faithfulness outranks best practice in this theme (e.g. body contrast ~4.0:1 matches the live site).
 
-## Theme: Refined (editorial / Neutra)
+## Theme: Refined (monograph)
 
-Editorial redesign in the register of Neutra-era California modernism — the printed page of *Arts & Architecture* (Shulman plates, Lustig-era composition) rather than the gray site. CSS-only override layer on the same markup.
+Register: the architecture monograph — TASCHEN's Neutra volume as the reference. A quiet neo-grotesque at small sizes, hierarchy barely a whisper, **no rules or divider lines anywhere** (separation is whitespace and placement), photography carrying the page, **everything flush-left** (Anran hates centered text). CSS-only override layer on the same markup.
 
-- **Ground**: paper #f8f7f5 with charcoal ink #1c1c1a (16:1); captions #6e6a64 (4.9:1). The logo PNG (white type) is inverted to charcoal via `filter`.
-- **Accent**: Beverly's orange survives as the single mark — #d96c0a underlines/outlines (≥3:1), #b04f08 where used as text.
-- **Type**: one Futura-lineage family, Jost (variable, self-hosted), carried by weight contrast: project titles lowercase 300-weight at clamp(30–44px); nav lowercase 13px/500 with 0.1em tracking; body 16px/1.65 at a 62ch measure; credit labels 11px tracked caps; description kicker lines 13px tracked caps.
-- **Gallery**: recomposed as a full-width plate (66vh, centered, contain) with a contact-sheet thumb strip beneath (56px, 8px gaps, 1px keylines); browsing dims the strip, the pointed-at frame stays lit with an orange outline.
-- **Structure**: plane changes marked by rules — a full-bleed charcoal hairline under the masthead and above the info section (the long roofline), soft hairlines for captions and dropdown panels. Dropdowns become paper panels under a 2px charcoal cap.
+- **Ground**: neutral near-white #f5f5f4 with near-black ink #111110 (~17:1); captions #6b6862 (4.9:1). The logo PNG (white type) is inverted to charcoal via `filter`.
+- **Accent**: Beverly's orange as the single mark — #d96c0a underlines/outlines (≥3:1), #b04f08 as text.
+- **Type**: Archivo (grotesque, variable, self-hosted), flat scale: project titles just 17px/600 with 0.02em tracking; nav 12px/500 uppercase 0.08em; body 14px/1.6 on a 60ch measure; credit labels 11px tracked caps; description kicker lines 14px bold (same size as body).
+- **Gallery**: full-width plate (66vh, contain, **flush-left to the grid**) with a contact-sheet thumb strip beneath (52px, 8px gaps, 1px keylines); browsing dims the strip, the pointed-at frame stays lit with an orange outline.
+- **Footer**: the © line splits left (©) / middle (address) / right (phone + email) via the `si-*` spans; stacks flush-left on mobile.
+- **Dropdowns**: plain white panels, shadow only, flyout arrows brought inside the panel (the Original theme keeps Divi's faithful outside-hanging arrows).
 - **Motion**: 160ms ease-out only, disabled under `prefers-reduced-motion`.
 
 ## Components

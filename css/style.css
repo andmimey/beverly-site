@@ -148,17 +148,19 @@ h6 { font-size: 14px; }
 #top-menu li.current-menu-item > a,
 #top-menu li.current-menu-ancestor > a { color: var(--color-accent); }
 
-/* Dropdown chevron on parent items (Divi's ETmodules glyph, redrawn) */
+/* Dropdown chevron on parent items: Divi positions the glyph absolutely at
+   the link's right edge (right:0), with padding-right making room */
+#top-menu > li.menu-item-has-children > a { padding-right: 20px; }
 #top-menu > li.menu-item-has-children > a::after {
   content: "";
-  display: inline-block;
+  position: absolute;
+  right: 2px;
+  top: 5px;
   width: 5px;
   height: 5px;
   border-right: 2px solid currentColor;
   border-bottom: 2px solid currentColor;
-  transform: rotate(45deg) translateY(-2px);
-  margin-left: 7px;
-  vertical-align: 2px;
+  transform: rotate(45deg);
 }
 
 /* Dropdown panels */
@@ -186,11 +188,15 @@ h6 { font-size: 14px; }
 #top-menu li li a:hover { opacity: 0.7; background-color: rgba(0, 0, 0, 0.03); }
 #top-menu li:hover > ul { visibility: visible; opacity: 1; }
 
-/* Flyout arrow at the right edge of nested parent rows */
+/* Flyout arrow on nested parent rows. Faithful Divi quirk: the fixed-width
+   link box (200px + padding, starting 20px in) is wider than the 240px
+   panel, so the down arrow at the link's right edge hangs OUTSIDE the
+   dropdown panel, just like the live site. */
+#top-menu li li.menu-item-has-children > a { padding-right: 40px; }
 #top-menu li li.menu-item-has-children > a::after {
   content: "";
   position: absolute;
-  right: 8px;
+  right: 2px;
   top: 50%;
   width: 5px;
   height: 5px;
@@ -308,9 +314,27 @@ h6 { font-size: 14px; }
 
 /* Home ------------------------------------------------------------------- */
 
-/* Hero sits flush against the header, exactly like the live site */
+/* Hero sits flush against the header, exactly like the live site.
+   The old baked-in collage is rebuilt as a native grid: column/row tracks
+   and gutters transcribed from the composite's pixel geometry (1500x906). */
 .band-home .row { padding: 0; }
 .home-hero img { width: 100%; height: auto; }
+.home-collage {
+  display: grid;
+  aspect-ratio: 1500 / 906;
+  grid-template-columns: 750fr 14fr 347fr 14fr 375fr;
+  grid-template-rows: 408fr 14fr 484fr;
+}
+.home-collage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.hc-a { grid-area: 1 / 1 / 4 / 2; }
+.hc-b { grid-area: 1 / 3 / 2 / 4; }
+.hc-c { grid-area: 1 / 5 / 2 / 6; }
+.hc-d { grid-area: 3 / 3 / 4 / 6; }
 
 /* About / Bio / Contact --------------------------------------------------- */
 
