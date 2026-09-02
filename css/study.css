@@ -143,9 +143,10 @@ body { font-weight: 400; }
   padding: var(--l) 0 var(--m);
 }
 .wi-cat:first-child { padding-top: 0; }
-.wi-jump { padding-bottom: var(--m); }
+.row-flex { gap: var(--m) var(--l); }
+.wi-jump { display: flex; gap: var(--m); }
 .wi-jump a {
-  margin-right: var(--m);
+  margin-right: 0;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -221,14 +222,13 @@ body { font-weight: 400; }
   visibility: hidden;
 }
 .band-siteinfo a:hover { color: var(--color-accent-text); }
+.map-caption a { font-weight: 500; }
+.map-caption a:hover { color: var(--color-accent-text); }
+.map-svg circle { fill: var(--color-accent-mark); }
 
 /* Home: photography close to the top -------------------------------------- */
 
 .band-home .row { padding-top: var(--m); }
-
-/* The lower-right render carries a pink/lavender cast the photographs
-   don't; pull it toward the collage's muted neutrals */
-.home-collage .hc-d { filter: saturate(0.55) hue-rotate(-8deg) contrast(1.03) brightness(1.01); }
 
 /* About / Bio / Contact --------------------------------------------------- */
 
