@@ -36,6 +36,9 @@ body::before {
 }
 .band, .proj-nav { background-color: transparent; }
 
+/* Interactive words turn orange — everywhere */
+a:hover { color: var(--color-accent-text); }
+
 /* Masthead: tight, wordmark set live in Germano (the site's own logo face),
    hides on scroll down and returns on scroll up ------------------------- */
 
@@ -216,7 +219,9 @@ body::before {
 /* Site info: left / middle / right on wide screens, a flush-left stack
    below 1000px — the three segments never wrap mid-group ----------------- */
 
-.band-siteinfo .row {
+/* higher specificity than the generic `.band .row` below, which zeroes
+   padding-bottom and was silently swallowing this value */
+.band.band-siteinfo .row {
   margin-top: var(--l);
   padding-top: 0;
   /* a full chapter break below, answering the 64px masthead band */
@@ -322,7 +327,7 @@ html[data-theme="dark"] .map-embed .maplibregl-ctrl-attrib-button { filter: inve
   .band-siteinfo .si-mid .nb,
   .band-siteinfo .si-right .nb { display: inline; }
   .band-siteinfo .p1 { display: inline; }
-  .band-siteinfo .row { padding-bottom: var(--m); }
+  .band.band-siteinfo .row { padding-bottom: var(--m); }
 }
 
 @media all and (max-width: 980px) {
