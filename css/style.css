@@ -366,10 +366,11 @@ main > .band-siteinfo { margin-top: auto; }
 
 /* About / Bio / Contact --------------------------------------------------- */
 
-.bio-photo {
-  background-size: cover;
-  background-position: center;
-  min-height: 400px;
+.firm-img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
 }
 
 .map-wrap { position: relative; }

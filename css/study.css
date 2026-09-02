@@ -134,7 +134,7 @@ body { font-weight: 400; }
 .band-info .col-1-3 p { padding-bottom: 1.3em; }
 .band-info .col-1-3 hr { display: none; }
 
-.band-info .col-2-3 p {
+.col-2-3 p {
   max-width: 60ch;
   text-wrap: pretty;
 }
@@ -176,7 +176,7 @@ body { font-weight: 400; }
 
 .band .row { padding-top: 40px; padding-bottom: 0; }
 .band-title .row, .band-gallery .row, .band-info .row, .band-workindex .row { padding-bottom: 0; }
-.bio-photo { min-height: 440px; }
+#bio .row { padding-top: 72px; }
 
 /* Style switcher ---------------------------------------------------------- */
 

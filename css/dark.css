@@ -14,8 +14,8 @@
   --color-text: #ffffff;
   --color-link: #ffffff;
   --color-submenu-link: #ffffff;
-  --color-accent-mark: #ffb877;        /* ≥3:1 mark orange on the gray */
-  --color-accent-text: #ffb877;
+  --color-accent-mark: #ff9433;        /* the pop orange, marks */
+  --color-accent-text: #ff9433;      /* vivid on the gray — pop over strict AA, per direction */
   --keyline: rgba(255, 255, 255, 0.16);
   --panel-bg: #565656;
   --panel-hover: rgba(255, 255, 255, 0.06);
