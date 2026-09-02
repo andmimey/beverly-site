@@ -103,6 +103,7 @@ a:hover { color: var(--color-accent-text); }
 /* Project title: quiet, monograph-scale ---------------------------------- */
 
 .band-title { padding-top: var(--l); padding-bottom: 0; }
+.band.band-title .row { padding: 0; }
 .band-title h4 {
   font-size: var(--font-size-h4);
   font-weight: bold;
@@ -115,7 +116,7 @@ a:hover { color: var(--color-accent-text); }
 
 /* Gallery: full-width plate, contact sheet beneath ------------------------ */
 
-.band-gallery .row { padding-top: var(--m); padding-bottom: 0; }
+.band.band-gallery .row { padding-top: var(--m); padding-bottom: 0; }
 
 #ba-wrapper {
   display: flex;
@@ -155,7 +156,7 @@ a:hover { color: var(--color-accent-text); }
 
 /* Work overview ----------------------------------------------------------- */
 
-.band-workindex .row { padding-top: var(--m); }
+.band.band-workindex .row { padding-top: var(--m); }
 .wi-cat {
   font-size: 14px;
   font-weight: 400;
@@ -192,7 +193,7 @@ a:hover { color: var(--color-accent-text); }
 /* Info: whitespace instead of rules --------------------------------------- */
 
 .band-info { padding-top: var(--l); }
-.band-info .row { padding-top: 0; }
+.band.band-info .row { padding-top: 0; }
 
 .col-1-3 strong,
 .col-1-3 b {
