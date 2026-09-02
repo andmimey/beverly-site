@@ -9,8 +9,10 @@
 
 :root {
   --color-bg: #616161;
+  --bg-top: #656565;
+  --bg-bottom: #5c5c5c;
   --color-band-title: #616161;
-  --color-header-bg: #616161;
+  --color-header-bg: #656565;
   --color-text: #ffffff;
   --color-link: #ffffff;
   --color-submenu-link: #ffffff;

@@ -24,6 +24,18 @@
 
 body { font-weight: 400; }
 
+/* A very subtle light-to-dark wash, fixed to the viewport so it reads
+   the same at any scroll position (pseudo-element: iOS ignores
+   background-attachment: fixed) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(var(--bg-top), var(--bg-bottom));
+}
+.band, .proj-nav { background-color: transparent; }
+
 /* Masthead: tight, wordmark set live in Germano (the site's own logo face),
    hides on scroll down and returns on scroll up ------------------------- */
 
