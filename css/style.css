@@ -13,6 +13,7 @@
   --color-link: #ffffff;
   --color-accent: #f48b2e;        /* current-page nav highlight */
   --color-submenu-link: rgba(255, 255, 255, 0.7);
+
   /* Typography */
   --font-body: 'Abel', Helvetica, Arial, Lucida, sans-serif;
   --font-size-body: 14px;
@@ -22,11 +23,13 @@
   --line-height-body: 1.7em;
   --nav-letter-spacing: 1px;
 
-  /* Layout */
-  --header-height: 84px;
+  /* Layout (header metrics measured against the live site at 1440w) */
+  --header-height: 99px;
+  --logo-height: 30px;
   --row-width: 80%;
   --row-max-width: 1080px;
   --gutter: 5.5%;                 /* Divi gutters3 column gap */
+  --submenu-width: 240px;
   --gallery-height: 540px;
 }
 
@@ -116,12 +119,20 @@ h6 { font-size: 14px; }
   display: flex;
   align-items: center;
 }
-#logo { max-height: 42px; width: auto; }
+#logo { max-height: var(--logo-height); width: auto; }
 
-#site-nav { float: right; padding-top: 33px; }
+/* Nav: Divi header-left mechanics — top padding above the links, matching
+   bottom padding on the links themselves so hover carries down to the
+   dropdown, which opens exactly at the header's bottom edge. */
+#site-nav { float: right; padding-top: 38px; }
 
 #top-menu { line-height: 0; }
-#top-menu > li { display: inline-block; font-size: var(--font-size-nav); padding-right: 22px; }
+#top-menu > li {
+  display: inline-block;
+  font-size: var(--font-size-nav);
+  padding-right: 22px;
+  position: relative;
+}
 #top-menu > li:last-child { padding-right: 0; }
 #top-menu a {
   color: var(--color-text);
@@ -129,21 +140,34 @@ h6 { font-size: 14px; }
   letter-spacing: var(--nav-letter-spacing);
   display: block;
   position: relative;
+  line-height: var(--line-height-body);
   transition: opacity 0.4s ease-in-out;
 }
-#top-menu > li > a { padding-bottom: 33px; }
+#top-menu > li > a { padding-bottom: 37px; }
 #top-menu > li > a:hover { opacity: 0.7; }
 #top-menu li.current-menu-item > a,
 #top-menu li.current-menu-ancestor > a { color: var(--color-accent); }
 
-/* Dropdowns */
-#top-menu li { position: relative; }
+/* Dropdown chevron on parent items (Divi's ETmodules glyph, redrawn) */
+#top-menu > li.menu-item-has-children > a::after {
+  content: "";
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg) translateY(-2px);
+  margin-left: 7px;
+  vertical-align: 2px;
+}
+
+/* Dropdown panels */
 #top-menu li ul {
   position: absolute;
-  top: auto;
+  top: 100%;
   left: 0;
   z-index: 9999;
-  width: 240px;
+  width: var(--submenu-width);
   padding: 20px 0;
   background-color: var(--color-header-bg);
   border-top: 3px solid #ffffff;
@@ -152,7 +176,7 @@ h6 { font-size: 14px; }
   opacity: 0;
   transition: all 0.2s ease-in-out;
 }
-#top-menu li li { padding: 0 20px; margin: 0; display: block; line-height: 1.7em; }
+#top-menu li li { padding: 0 20px; margin: 0; display: block; position: relative; }
 #top-menu li li a {
   padding: 6px 20px;
   width: 200px;
@@ -162,10 +186,25 @@ h6 { font-size: 14px; }
 #top-menu li li a:hover { opacity: 0.7; background-color: rgba(0, 0, 0, 0.03); }
 #top-menu li:hover > ul { visibility: visible; opacity: 1; }
 
-/* second-level flyouts */
+/* Flyout arrow at the right edge of nested parent rows */
+#top-menu li li.menu-item-has-children > a::after {
+  content: "";
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  width: 5px;
+  height: 5px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: translateY(-4px) rotate(45deg);
+}
+
+/* Second-level flyouts open to the LEFT, like the live site
+   (Divi's .et-reverse-direction-nav applied to the right-edge menu) */
 #top-menu li li ul {
   top: -23px;
-  left: 240px;
+  left: auto;
+  right: var(--submenu-width);
 }
 
 /* Mobile menu toggle */
@@ -191,15 +230,16 @@ h6 { font-size: 14px; }
   padding: 2% 0;
 }
 
+/* Project title band: 20px section padding, zeroed row */
 .band-title { background-color: var(--color-band-title); padding-top: 20px; padding-bottom: 20px; }
 .band-title .row { padding: 0; }
-.band-title h4 { padding-bottom: 0; line-height: 1.7em; }
+.band-title h4 { padding-bottom: 10px; margin-bottom: -10px; line-height: 1em; }
 
-.band-gallery { padding-top: 0; padding-bottom: 0; }
-.band-gallery .row { padding-top: 0; padding-bottom: 0; }
+/* Gallery band: section zeroed, row keeps its 2% top only */
+.band-gallery .row { padding-top: 2%; padding-bottom: 0; }
 
-.band-info { padding-top: 45px; padding-bottom: 0; }
-.band-info .row { padding-top: 0; margin-top: 0; }
+.band-info { padding-top: 45px; }
+.band-info .row { padding-top: 0; padding-bottom: 0; margin-top: 0; }
 
 /* Columns (Divi gutters3 widths) */
 .col { float: left; margin-right: var(--gutter); min-height: 1px; }
@@ -216,7 +256,7 @@ h6 { font-size: 14px; }
 
 /* Press logos in credit columns */
 .press-title { margin-top: 30px; max-width: 180px; padding-top: 0; }
-.press-logo { margin-bottom: 15px; max-width: 115px; text-align: left; margin-left: 0; }
+.press-logo { margin-bottom: 15px !important; max-width: 115px; text-align: left; margin-left: 0; }
 .press-logo img { width: auto; }
 
 /* Site info band (the © line at the bottom of every page) */
@@ -268,8 +308,8 @@ h6 { font-size: 14px; }
 
 /* Home ------------------------------------------------------------------- */
 
-.band-home { padding-top: 2%; padding-bottom: 2%; }
-.band-home .row { padding: 2% 0; }
+/* Hero sits flush against the header, exactly like the live site */
+.band-home .row { padding: 0; }
 .home-hero img { width: 100%; height: auto; }
 
 /* About / Bio / Contact --------------------------------------------------- */
@@ -287,6 +327,66 @@ h6 { font-size: 14px; }
   filter: grayscale(100%);
   display: block;
 }
+
+/* Style switcher (corner icon, hover to open) ----------------------------- */
+
+#style-switch {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 100000;
+}
+
+#style-switch .ss-toggle {
+  display: block;
+  width: 34px;
+  height: 34px;
+  padding: 8px;
+  background: none;
+  cursor: pointer;
+  opacity: 0.45;
+  transition: opacity 0.2s ease-in-out;
+}
+#style-switch:hover .ss-toggle,
+#style-switch:focus-within .ss-toggle { opacity: 1; }
+#style-switch .ss-toggle svg { display: block; width: 18px; height: 18px; }
+#style-switch .ss-toggle rect { fill: none; stroke: var(--color-text); stroke-width: 1.5; }
+
+#style-switch .ss-panel {
+  position: absolute;
+  right: 0;
+  bottom: 100%;
+  margin-bottom: 8px;
+  min-width: 124px;
+  background: #5c5c5c;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  padding: 6px 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+}
+#style-switch:hover .ss-panel,
+#style-switch:focus-within .ss-panel { visibility: visible; opacity: 1; }
+
+#style-switch .ss-panel button {
+  display: block;
+  width: 100%;
+  padding: 8px 16px;
+  background: none;
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-align: left;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+#style-switch .ss-panel button:hover { background: rgba(0, 0, 0, 0.12); }
+#style-switch .ss-panel button[aria-pressed="true"] { color: var(--color-accent); }
+#style-switch .ss-panel button:focus-visible,
+#style-switch .ss-toggle:focus-visible { outline: 2px solid var(--color-text); outline-offset: -2px; }
 
 /* Responsive -------------------------------------------------------------- */
 
@@ -312,6 +412,8 @@ h6 { font-size: 14px; }
   }
   #site-nav.open #top-menu > li { display: block; padding: 0; }
   #site-nav.open #top-menu a { padding: 10px 5%; border-bottom: 1px solid rgba(0, 0, 0, 0.03); }
+  #site-nav.open #top-menu > li.menu-item-has-children > a::after,
+  #site-nav.open #top-menu li li.menu-item-has-children > a::after { display: none; }
   #site-nav.open #top-menu li ul {
     position: static;
     visibility: visible;

@@ -30,12 +30,29 @@ python3 -m http.server 8000
 # open http://localhost:8000
 ```
 
-## Making variations
+## Themes / variations
 
-All spacing, typography, and color decisions live in the `:root` token block at the
-top of `css/style.css` (`--color-*`, `--font-*`, `--header-height`, `--gutter`,
-`--gallery-height`, …). Duplicate `style.css` per variation or just edit the tokens.
+A small corner icon (bottom-right, hover to open) switches between themes; the
+choice persists per browser via localStorage and applies before first paint.
 
-Faithful-to-original values: gray `#7e7e7e` ground, `#686868` title bands, Abel 14px,
-white text, orange `#f48b2e` current-nav highlight, 1080px max content width,
-hover-to-swap project galleries.
+- **Original** (`css/style.css`): faithful transcription of the live Divi site —
+  gray `#7e7e7e` ground, `#686868` title bands, Abel 14px, orange `#f48b2e`
+  current-nav highlight, 99px fixed header, left-opening sub-sub menus,
+  hover-to-swap galleries.
+- **Refined** (`css/refined.css`): override layer, "technological cleanup."
+  Same identity with nameable defects fixed: ground deepened to `#6b6b6b` so body
+  text passes WCAG AA, nav-current becomes white with an orange underline (state
+  no longer color-only), titles 22px with tracking, description measure capped at
+  66ch, 8px gallery grid with an active-thumb outline, hairline plane changes,
+  160ms ease-out motion with `prefers-reduced-motion` support.
+
+To add another variation, copy `css/refined.css`, adjust tokens/overrides, and add
+a button to the switcher panel (`data-theme` name) in the shared page footer.
+See `PRODUCT.md` and `DESIGN.md` for the strategic and visual context.
+
+## Publishing (GitHub Pages)
+
+The site is plain static files with relative links, so GitHub Pages works as-is:
+Settings → Pages → Deploy from branch → `main` / root. `.nojekyll` is included so
+Pages serves files verbatim. It will work at both
+`https://andmimey.github.io/beverly-site/` and a custom domain.

@@ -1,0 +1,114 @@
+/* ==========================================================================
+   Bach Architecture — "Refined" theme
+   Override layer loaded after style.css. Same identity, defects fixed:
+   every rule here corrects a nameable issue (contrast, measure, rhythm,
+   state legibility) rather than restyling for taste.
+   Register: Neutra-era calm — planes marked by shadow lines, warmth held
+   inside crisp structure, the photograph carries the page.
+   ========================================================================== */
+
+:root {
+  /* Ground deepened one step: white body text now ≥5:1 (was ~4:1) */
+  --color-bg: #6b6b6b;
+  --color-band-title: #575757;
+  --color-header-bg: #6b6b6b;
+
+  /* Submenu links lifted to ≥4.5:1 on the deeper ground */
+  --color-submenu-link: rgba(255, 255, 255, 0.9);
+
+  /* Type: body up a step with more air (light-on-dark reads lighter);
+     titles gain real hierarchy (22/15 ≈ 1.47 ratio, was 18/14) */
+  --font-size-body: 15px;
+  --line-height-body: 1.75;
+  --font-size-h4: 22px;
+  --font-size-siteinfo: 12px;
+}
+
+/* Plane changes marked by hairlines, not tone jumps ---------------------- */
+
+#site-header { box-shadow: 0 1px 0 rgba(255, 255, 255, 0.16); }
+
+.band-title {
+  box-shadow:
+    inset 0 1px 0 rgba(0, 0, 0, 0.08),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.08);
+}
+
+/* Navigation: state is never color-only ---------------------------------- */
+
+/* Current page: white text + the identity orange moved into an underline,
+   solving the original's 2.2:1 orange-on-gray label */
+#top-menu li.current-menu-item > a,
+#top-menu li.current-menu-ancestor > a {
+  color: var(--color-text);
+  text-decoration: underline;
+  text-decoration-color: var(--color-accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 7px;
+}
+#top-menu li li a { text-underline-offset: 4px; }
+
+/* Dropdown panels squared up: hairline cap, deeper soft shadow */
+#top-menu li ul {
+  padding: 16px 0;
+  border-top-width: 1px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+}
+#top-menu li li a { padding: 7px 20px; }
+
+/* Typography: measure and rhythm ----------------------------------------- */
+
+.band-title h4 {
+  letter-spacing: 0.04em;
+  text-wrap: balance;
+}
+
+/* Description column capped at a readable measure */
+.band-info .col-2-3 p {
+  max-width: 66ch;
+  text-wrap: pretty;
+}
+
+hr { border-top-color: rgba(255, 255, 255, 0.35); }
+
+.band-siteinfo p { letter-spacing: 0.02em; }
+
+/* Gallery: 8px grid, legible hover state --------------------------------- */
+
+.ba-thumb {
+  height: 88px;
+  margin: 4px;
+  transition: opacity 160ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Browsing dims the field; the pointed-at thumb stays lit and marked */
+#ba-thumbs:hover .ba-thumb { opacity: 0.8; }
+#ba-thumbs .ba-thumb:hover { opacity: 1; }
+.ba-thumb.active {
+  outline: 2px solid var(--color-accent);
+  outline-offset: -2px;
+}
+
+/* Interaction polish ------------------------------------------------------ */
+
+#top-menu a,
+#top-menu li ul,
+.press-logo a,
+#style-switch .ss-toggle {
+  transition-duration: 160ms;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .ba-thumb { height: 48px; margin: 4px; }
+}
+@media screen and (max-width: 736px) {
+  .ba-thumb { height: 24px; margin: 2px; }
+}
