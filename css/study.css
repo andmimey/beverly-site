@@ -22,17 +22,6 @@
   --l: 64px;
 }
 
-@font-face {
-  /* Wordmark stand-in: the 2016 logo is a Helvetica Condensed Medium-class
-     face; swap in licensed Helvetica Now Text Condensed by adding its
-     @font-face and prepending it to the wordmark stack below. */
-  font-family: 'Roboto Condensed';
-  font-style: normal;
-  font-weight: 300 700;
-  font-display: swap;
-  src: url('../fonts/roboto-condensed-var.woff2') format('woff2');
-}
-
 body { font-weight: 400; }
 
 /* A very subtle light-to-dark wash, fixed to the viewport so it reads
@@ -59,14 +48,17 @@ a:hover { color: var(--color-accent-text); }
 #site-header.is-hidden { transform: translateY(-100%); }
 
 #logo { display: none; }
+/* The wordmark is the original logo artwork (white-on-transparent PNG)
+   used as an alpha mask and filled with the theme ink — pixel-exact
+   letterforms, no font, recolors per theme. */
 .logo_container a::before {
-  content: "BACH ARCHITECTURE";
-  font-family: 'Roboto Condensed', 'ger', 'Archivo', Helvetica, sans-serif;
-  font-weight: 500;
-  font-size: 22px;
-  letter-spacing: 0.02em;
-  color: var(--color-text);
-  line-height: 1;
+  content: "";
+  display: block;
+  width: 249px;
+  height: 22px;
+  background-color: var(--color-text);
+  -webkit-mask: url('../images/2016/12/logo2.png') no-repeat 0 50% / contain;
+  mask: url('../images/2016/12/logo2.png') no-repeat 0 50% / contain;
 }
 
 #site-header .container {
@@ -172,7 +164,7 @@ a:hover { color: var(--color-accent-text); }
 .wi-cat:first-child { padding-top: 0; }
 .row-flex { gap: var(--m) var(--l); }
 .wi-jump { display: flex; gap: var(--m); }
-.wi-jump a { margin-right: 0; }
+.wi-jump a { margin-right: 0; font-weight: 400; letter-spacing: normal; }
 .wi-jump a:hover { color: var(--color-accent-text); }
 .wi-cat { scroll-margin-top: calc(var(--header-height) + var(--m)); }
 .wi-item:hover .wi-name { color: var(--color-accent-text); }

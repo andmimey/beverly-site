@@ -8,11 +8,6 @@
 <style>
 /* Self-contained (served at arbitrary depths), styled to the Light study. */
 @font-face {
-  font-family: 'ger';
-  src: url('https://andmimey.github.io/beverly-site/fonts/ger.woff') format('woff');
-  font-display: swap;
-}
-@font-face {
   font-family: 'Archivo';
   font-weight: 100 900;
   src: url('https://andmimey.github.io/beverly-site/fonts/archivo-var.woff2') format('woff2');
@@ -31,7 +26,11 @@ body {
 }
 .row { width: 80%; max-width: 1080px; margin: 0 auto; }
 header .row { height: 64px; display: flex; align-items: center; }
-.wordmark { font-family: 'ger', 'Archivo', sans-serif; font-size: 21px; letter-spacing: 0.02em; color: #111111; text-decoration: none; }
+.wordmark {
+  display: block; width: 249px; height: 22px; background: #111111;
+  -webkit-mask: url('https://andmimey.github.io/beverly-site/images/2016/12/logo2.png') no-repeat 0 50% / contain;
+  mask: url('https://andmimey.github.io/beverly-site/images/2016/12/logo2.png') no-repeat 0 50% / contain;
+}
 main { flex: 1 0 auto; }
 main .row { padding-top: 64px; }
 h1 { font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding-bottom: 24px; }
@@ -45,7 +44,7 @@ footer p { font-size: 14px; padding: 0; }
 </head>
 <body>
 <header>
-  <div class="row"><a class="wordmark" href="https://andmimey.github.io/beverly-site/dark/">BACH ARCHITECTURE</a></div>
+  <div class="row"><a class="wordmark" href="https://andmimey.github.io/beverly-site/dark/" aria-label="Bach Architecture"></a></div>
 </header>
 <main>
   <div class="row">
