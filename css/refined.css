@@ -1,93 +1,208 @@
 /* ==========================================================================
    Bach Architecture — "Refined" theme
-   Override layer loaded after style.css. Same identity, defects fixed:
-   every rule here corrects a nameable issue (contrast, measure, rhythm,
-   state legibility) rather than restyling for taste.
-   Register: Neutra-era calm — planes marked by shadow lines, warmth held
-   inside crisp structure, the photograph carries the page.
+   Editorial redesign in the register of Neutra-era California modernism:
+   the printed page of Arts & Architecture rather than the gray site.
+   Paper ground, charcoal ink, one Futura-lineage family (Jost) carried by
+   weight contrast, plates presented full-width with a contact-sheet strip,
+   plane changes marked by hairline rules. Beverly's orange survives as the
+   single accent mark. Pure override layer: same markup, loaded after
+   style.css, selected from the corner switcher.
    ========================================================================== */
 
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('../fonts/jost-var.woff2') format('woff2');
+}
+
 :root {
-  /* Ground deepened one step: white body text now ≥5:1 (was ~4:1) */
-  --color-bg: #6b6b6b;
-  --color-band-title: #575757;
-  --color-header-bg: #6b6b6b;
+  /* Shulman print: paper, charcoal steel, desert orange */
+  --color-bg: #f8f7f5;
+  --color-band-title: #f8f7f5;
+  --color-header-bg: #f8f7f5;
+  --color-text: #1c1c1a;
+  --color-link: #1c1c1a;
+  --color-submenu-link: rgba(28, 28, 26, 0.75);
+  --color-caption: #6e6a64;            /* 4.9:1 on paper */
+  --color-accent-mark: #d96c0a;        /* ≥3:1 mark orange for rules/outlines */
+  --color-accent-text: #b04f08;        /* 4.8:1 text orange */
+  --hairline: rgba(28, 28, 26, 0.18);
+  --rule: rgba(28, 28, 26, 0.9);
 
-  /* Submenu links lifted to ≥4.5:1 on the deeper ground */
-  --color-submenu-link: rgba(255, 255, 255, 0.9);
-
-  /* Type: body up a step with more air (light-on-dark reads lighter);
-     titles gain real hierarchy (22/15 ≈ 1.47 ratio, was 18/14) */
-  --font-size-body: 15px;
-  --line-height-body: 1.75;
-  --font-size-h4: 22px;
-  --font-size-siteinfo: 12px;
+  --font-body: 'Jost', 'Futura', 'Avenir Next', Helvetica, sans-serif;
+  --font-size-body: 16px;
+  --line-height-body: 1.65;
+  --font-size-siteinfo: 11px;
 }
 
-/* Plane changes marked by hairlines, not tone jumps ---------------------- */
+body { font-weight: 400; }
 
-#site-header { box-shadow: 0 1px 0 rgba(255, 255, 255, 0.16); }
+/* Masthead ---------------------------------------------------------------- */
 
-.band-title {
-  box-shadow:
-    inset 0 1px 0 rgba(0, 0, 0, 0.08),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.08);
+#site-header { box-shadow: 0 1px 0 var(--rule); }
+
+/* The logo PNG is white type; invert it to charcoal on paper */
+#logo { filter: invert(0.89); }
+
+#top-menu a {
+  font-weight: 500;
+  font-size: 13px;
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
 }
-
-/* Navigation: state is never color-only ---------------------------------- */
-
-/* Current page: white text + the identity orange moved into an underline,
-   solving the original's 2.2:1 orange-on-gray label */
 #top-menu li.current-menu-item > a,
 #top-menu li.current-menu-ancestor > a {
   color: var(--color-text);
   text-decoration: underline;
-  text-decoration-color: var(--color-accent);
+  text-decoration-color: var(--color-accent-mark);
   text-decoration-thickness: 2px;
   text-underline-offset: 7px;
 }
 #top-menu li li a { text-underline-offset: 4px; }
 
-/* Dropdown panels squared up: hairline cap, deeper soft shadow */
+/* Dropdowns: paper panels under a charcoal cap */
 #top-menu li ul {
-  padding: 16px 0;
-  border-top-width: 1px;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+  padding: 14px 0;
+  background-color: var(--color-bg);
+  border-top: 2px solid var(--color-text);
+  border-right: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+  border-left: 1px solid var(--hairline);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
 }
-#top-menu li li a { padding: 7px 20px; }
+#top-menu li li a { padding: 7px 20px; font-size: 12px; }
+#top-menu li li a:hover { background-color: rgba(0, 0, 0, 0.04); }
 
-/* Typography: measure and rhythm ----------------------------------------- */
+/* Project title: editorial headline ------------------------------------- */
 
+.band-title { padding-top: 64px; padding-bottom: 0; }
 .band-title h4 {
-  letter-spacing: 0.04em;
+  text-transform: lowercase !important;
+  font-size: clamp(30px, 3.4vw, 44px);
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  line-height: 1.1;
+  padding-bottom: 0;
+  margin-bottom: 0;
   text-wrap: balance;
 }
 
-/* Description column capped at a readable measure */
-.band-info .col-2-3 p {
-  max-width: 66ch;
-  text-wrap: pretty;
+/* Gallery: full-width plate, contact sheet beneath ------------------------ */
+
+.band-gallery .row { padding-top: 28px; padding-bottom: 0; }
+
+#ba-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: auto;
 }
 
-hr { border-top-color: rgba(255, 255, 255, 0.35); }
+.ba-preview-wrap {
+  order: -1;
+  float: none;
+  width: 100%;
+  margin: 0;
+  height: min(66vh, 720px);
+  min-height: 420px;
+  background-position: 50% 50% !important;
+}
 
-.band-siteinfo p { letter-spacing: 0.02em; }
-
-/* Gallery: 8px grid, legible hover state --------------------------------- */
+#ba-thumbs {
+  float: none;
+  width: 100%;
+  margin: 28px 0 0;
+}
 
 .ba-thumb {
-  height: 88px;
-  margin: 4px;
+  height: 56px;
+  margin: 0 8px 8px 0;
+  box-shadow: 0 0 0 1px rgba(28, 28, 26, 0.1);
   transition: opacity 160ms cubic-bezier(0.22, 1, 0.36, 1);
 }
-
-/* Browsing dims the field; the pointed-at thumb stays lit and marked */
-#ba-thumbs:hover .ba-thumb { opacity: 0.8; }
+#ba-thumbs:hover .ba-thumb { opacity: 0.55; }
 #ba-thumbs .ba-thumb:hover { opacity: 1; }
 .ba-thumb.active {
-  outline: 2px solid var(--color-accent);
-  outline-offset: -2px;
+  outline: 2px solid var(--color-accent-mark);
+  outline-offset: 2px;
+  opacity: 1;
 }
+
+/* Info: the long roofline rule, captions, and a readable measure ---------- */
+
+.band-info {
+  border-top: 1px solid var(--rule);
+  margin-top: 56px;
+  padding-top: 0;
+}
+.band-info .row { padding-top: 40px; }
+
+/* Credit labels as small tracked captions */
+.band-info .col-1-3 strong,
+.band-info .col-1-3 b {
+  display: block;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-caption);
+  padding-bottom: 2px;
+}
+.band-info .col-1-3 strong + br,
+.band-info .col-1-3 b + br { display: none; }
+.band-info .col-1-3 { font-size: 15px; }
+.band-info .col-1-3 p { padding-bottom: 1.2em; }
+.band-info .col-1-3 hr {
+  border-top: 1px solid var(--hairline);
+  margin: 6px 0 18px;
+}
+
+/* Description: kicker lines stay caps, body gets a measure */
+.band-info .col-2-3 p {
+  max-width: 62ch;
+  text-wrap: pretty;
+}
+.band-info .col-2-3 strong {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  line-height: 2;
+}
+
+/* Site info: closing caption ---------------------------------------------- */
+
+.band-siteinfo .row {
+  border-top: 1px solid var(--hairline);
+  margin-top: 72px;
+  padding-top: 24px;
+  padding-bottom: 48px;
+}
+.band-siteinfo p {
+  color: var(--color-caption);
+  letter-spacing: 0.08em;
+}
+
+/* Home: plate under the masthead ------------------------------------------ */
+
+.band-home .row { padding-top: 48px; }
+
+/* About / Bio / Contact --------------------------------------------------- */
+
+.band .row { padding-top: 48px; padding-bottom: 0; }
+.band-title .row, .band-gallery .row, .band-info .row { padding-bottom: 0; }
+.bio-photo { min-height: 440px; }
+
+/* Style switcher on paper ------------------------------------------------- */
+
+#style-switch .ss-panel {
+  background: var(--color-bg);
+  border: 1px solid var(--hairline);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+#style-switch .ss-panel button { text-transform: lowercase; letter-spacing: 0.1em; font-weight: 500; }
+#style-switch .ss-panel button:hover { background: rgba(0, 0, 0, 0.04); }
+#style-switch .ss-panel button[aria-pressed="true"] { color: var(--color-accent-text); }
 
 /* Interaction polish ------------------------------------------------------ */
 
@@ -106,9 +221,26 @@ hr { border-top-color: rgba(255, 255, 255, 0.35); }
   }
 }
 
-@media screen and (max-width: 1024px) {
-  .ba-thumb { height: 48px; margin: 4px; }
+/* Responsive -------------------------------------------------------------- */
+
+@media all and (max-width: 980px) {
+  #site-nav.open { border-top: 2px solid var(--color-text); }
+  #site-nav.open #top-menu a { border-bottom-color: var(--hairline); }
+  .band-title { padding-top: 40px; }
+  .band-info { margin-top: 40px; }
 }
+
+@media screen and (max-width: 1024px) {
+  .ba-thumb { height: 44px; margin: 0 6px 6px 0; }
+}
+
 @media screen and (max-width: 736px) {
-  .ba-thumb { height: 24px; margin: 2px; }
+  .ba-preview-wrap {
+    width: 100%;
+    height: 44vh;
+    min-height: 260px;
+  }
+  #ba-thumbs { width: 100%; margin-top: 16px; }
+  .ba-thumb { height: 32px; margin: 0 4px 4px 0; }
+  .band-title { padding-top: 28px; }
 }

@@ -13,15 +13,16 @@ Two themes over one markup. `css/style.css` is the faithful transcription of the
 - **Layout**: fixed 99px header; 80% row width, max 1080px; Divi gutters (5.5%, columns 29.67/47.25/64.83%); hover-swap gallery (thumbs 33% left, preview 63%).
 - Faithfulness outranks best practice in this theme (e.g. body contrast ~4.0:1 matches the live site).
 
-## Theme: Refined ("technological cleanup")
+## Theme: Refined (editorial / Neutra)
 
-Same identity, defects fixed. Neutra register: horizontal calm, precision, warmth inside crisp structure.
+Editorial redesign in the register of Neutra-era California modernism — the printed page of *Arts & Architecture* (Shulman plates, Lustig-era composition) rather than the gray site. CSS-only override layer on the same markup.
 
-- **Ground**: deepened to #6b6b6b (white body text ≥5:1, AA); title band #575757; hairline rules rgba(255,255,255,.18) mark plane changes.
-- **Accent**: nav-current becomes white text with a 2px #f48b2e underline — the identity orange moves into a mark, solving the original's 2.2:1 orange-on-gray label without diluting the hue.
-- **Type**: body 15px/1.75 (light-on-dark breathing room), description measure capped at 66ch, `text-wrap: pretty`; project titles 22px with +0.06em tracking, `text-wrap: balance`; © line 12px.
-- **Gallery**: 8px-grid thumb gaps, hovered thumb marked by 2px accent outline, non-active thumbs ease to 0.85 opacity; 160ms ease-out transitions, disabled under `prefers-reduced-motion`.
-- **Structure**: 88px header with bottom hairline; dropdown panels squared to the 8px grid.
+- **Ground**: paper #f8f7f5 with charcoal ink #1c1c1a (16:1); captions #6e6a64 (4.9:1). The logo PNG (white type) is inverted to charcoal via `filter`.
+- **Accent**: Beverly's orange survives as the single mark — #d96c0a underlines/outlines (≥3:1), #b04f08 where used as text.
+- **Type**: one Futura-lineage family, Jost (variable, self-hosted), carried by weight contrast: project titles lowercase 300-weight at clamp(30–44px); nav lowercase 13px/500 with 0.1em tracking; body 16px/1.65 at a 62ch measure; credit labels 11px tracked caps; description kicker lines 13px tracked caps.
+- **Gallery**: recomposed as a full-width plate (66vh, centered, contain) with a contact-sheet thumb strip beneath (56px, 8px gaps, 1px keylines); browsing dims the strip, the pointed-at frame stays lit with an orange outline.
+- **Structure**: plane changes marked by rules — a full-bleed charcoal hairline under the masthead and above the info section (the long roofline), soft hairlines for captions and dropdown panels. Dropdowns become paper panels under a 2px charcoal cap.
+- **Motion**: 160ms ease-out only, disabled under `prefers-reduced-motion`.
 
 ## Components
 

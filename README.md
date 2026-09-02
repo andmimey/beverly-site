@@ -39,12 +39,13 @@ choice persists per browser via localStorage and applies before first paint.
   gray `#7e7e7e` ground, `#686868` title bands, Abel 14px, orange `#f48b2e`
   current-nav highlight, 99px fixed header, left-opening sub-sub menus,
   hover-to-swap galleries.
-- **Refined** (`css/refined.css`): override layer, "technological cleanup."
-  Same identity with nameable defects fixed: ground deepened to `#6b6b6b` so body
-  text passes WCAG AA, nav-current becomes white with an orange underline (state
-  no longer color-only), titles 22px with tracking, description measure capped at
-  66ch, 8px gallery grid with an active-thumb outline, hairline plane changes,
-  160ms ease-out motion with `prefers-reduced-motion` support.
+- **Refined** (`css/refined.css`): editorial redesign in the register of
+  Neutra-era California modernism (*Arts & Architecture*, Shulman plates).
+  Paper ground with charcoal ink, one Futura-lineage family (Jost, self-hosted)
+  carried by weight contrast, lowercase display titles, the gallery recomposed
+  as a full-width plate with a contact-sheet strip, hairline rules marking
+  plane changes, and the identity orange kept as the single accent. WCAG AA
+  contrast throughout, `prefers-reduced-motion` respected. CSS-only: same markup.
 
 To add another variation, copy `css/refined.css`, adjust tokens/overrides, and add
 a button to the switcher panel (`data-theme` name) in the shared page footer.
