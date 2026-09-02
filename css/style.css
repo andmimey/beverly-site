@@ -278,7 +278,10 @@ main > .band-siteinfo { margin-top: auto; }
 .press-logo { margin-bottom: 15px !important; max-width: 115px; text-align: left; margin-left: 0; }
 .press-logo img { width: auto; }
 
-/* Site info band (the © line at the bottom of every page) */
+/* Site info band (the © line at the bottom of every page).
+   Phrases that must never break mid-line are wrapped in .nb */
+.band-siteinfo .nb { white-space: nowrap; }
+
 .band-siteinfo .row { padding-top: 0; margin-top: 20px; padding-bottom: 2%; }
 .band-siteinfo p { font-size: var(--font-size-siteinfo); text-align: center; }
 
