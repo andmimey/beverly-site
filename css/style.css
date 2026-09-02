@@ -186,7 +186,6 @@ main > .band-siteinfo { margin-top: auto; }
   padding: 20px 0;
   background-color: var(--color-header-bg);
   border-top: 3px solid #ffffff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   visibility: hidden;
   opacity: 0;
   transition: all 0.2s ease-in-out;
@@ -401,77 +400,6 @@ main > .band-siteinfo { margin-top: auto; }
 .map-embed .maplibregl-ctrl-attrib.maplibregl-compact-show { background: rgba(255, 255, 255, 0.85); }
 .map-embed .maplibregl-ctrl-attrib,
 .map-embed .maplibregl-ctrl-attrib a { color: rgba(17, 17, 16, 0.55); }
-
-/* Style switcher (corner icon, hover to open) ----------------------------- */
-
-#style-switch {
-  position: fixed;
-  right: 18px;
-  bottom: 18px;
-  z-index: 100000;
-}
-
-#style-switch .ss-toggle {
-  display: block;
-  padding: 8px 2px;
-  background: none;
-  color: var(--color-text);
-  font-family: var(--font-body);
-  font-size: 14px;
-  font-weight: bold;
-  letter-spacing: var(--nav-letter-spacing);
-  text-transform: uppercase;
-  cursor: pointer;
-  opacity: 0.45;
-  transition: opacity 0.2s ease-in-out;
-}
-#style-switch:hover .ss-toggle,
-#style-switch:focus-within .ss-toggle { opacity: 1; }
-
-#style-switch .ss-panel {
-  position: absolute;
-  right: 0;
-  bottom: 100%;
-  margin-bottom: 8px;
-  min-width: 124px;
-  background: #5c5c5c;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
-  padding: 6px 0;
-  visibility: hidden;
-  opacity: 0;
-  transition: all 0.2s ease-in-out;
-}
-#style-switch:hover .ss-panel,
-#style-switch:focus-within .ss-panel { visibility: visible; opacity: 1; }
-
-#style-switch .ss-panel button {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  width: 100%;
-  padding: 9px 16px;
-  background: none;
-  color: var(--color-text);
-  font-family: var(--font-body);
-  font-size: 12px;
-  font-weight: bold;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  text-align: left;
-  cursor: pointer;
-  box-sizing: border-box;
-}
-#style-switch .swatch {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.35);
-  flex: none;
-}
-#style-switch .ss-panel button:hover { background: rgba(0, 0, 0, 0.12); }
-#style-switch .ss-panel button[aria-pressed="true"] { color: var(--color-accent); }
-#style-switch .ss-panel button:focus-visible,
-#style-switch .ss-toggle:focus-visible { outline: 2px solid var(--color-text); outline-offset: -2px; }
 
 /* Responsive -------------------------------------------------------------- */
 

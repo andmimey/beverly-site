@@ -256,31 +256,12 @@ a:hover { color: var(--color-accent-text); }
 
 /* Style switcher ---------------------------------------------------------- */
 
-#style-switch .ss-panel {
-  background: var(--panel-bg);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
-}
-#style-switch .ss-toggle {
-  font-weight: 400;
-  letter-spacing: normal;
-  text-transform: none;
-}
-#style-switch .ss-toggle:hover { color: var(--color-accent-text); }
-#style-switch .ss-panel button {
-  font-size: 14px;
-  font-weight: 400;
-  letter-spacing: normal;
-  text-transform: none;
-}
-#style-switch .ss-panel button:hover { background: var(--panel-hover); }
-#style-switch .ss-panel button[aria-pressed="true"] { color: var(--color-accent-text); }
 
 /* Interaction polish ------------------------------------------------------ */
 
 #top-menu a,
 .press-logo a,
-.wi-img img,
-#style-switch .ss-toggle {
+.wi-img img {
   transition-duration: 160ms;
   transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
 }

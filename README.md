@@ -5,7 +5,8 @@ Static recreation of [bach-architecture.com](https://bach-architecture.com/) (or
 ## Structure
 
 ```
-index.html                     Home
+index.html                     redirect to dark/ (the default landing)
+dark/ light/ classic/          three self-contained site trees, one per theme
 about/                         About the firm + Beverly's bio
 about/bio/                     redirect to about/#bio (About + Bio share one page)
 contact/                       Address + map
@@ -35,20 +36,17 @@ python3 -m http.server 8000
 
 ## Themes
 
-A corner icon (bottom-right, hover to open) switches between three options,
-persisted per browser and applied before first paint:
+Three self-contained versions of the site, one directory each — no switcher,
+no shared state, no cross-contamination:
 
-- **Classic** (`css/style.css`): faithful replica of the live Divi site,
-  including its hover dropdowns and fixed header.
-- **Light** / **Dark** (`css/light.css`, `css/dark.css` + shared
-  `css/study.css`): monograph-register studies. One typeface (Archivo) at one
-  size with weight-only hierarchy, purely neutral grey grounds (#f4f4f4 /
-  #6a6a6a), the wordmark set live in Germano (the site's own logo face),
-  orange words for current/hover states, no rules and no image borders,
-  a tight masthead that hides on scroll down and returns on scroll up,
-  and a `work/` overview page instead of dropdown menus.
+- **`/dark/`** — the default landing (the root URL redirects here). White text
+  on neutral medium grey, the monograph system.
+- **`/light/`** — the same monograph system on near-white.
+- **`/classic/`** — the faithful replica of the live Divi site, dropdowns and all.
 
-See `DESIGN.md` for the full system, `PRODUCT.md` for strategy.
+Each tree hard-links its stylesheets; pages never switch themes at runtime.
+See `DESIGN.md` for the system, `guidelines/` for the living reference
+(pinned to the light presentation).
 
 ## Publishing (GitHub Pages)
 

@@ -21,51 +21,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   var header = document.getElementById('site-header');
 
-  // Theme switcher: Classic (the faithful replica) is the bare stylesheet;
-  // Light and Dark load their token sheet on top. A head snippet applies
-  // the saved choice before first paint; this wires the buttons.
-  var switcher = document.getElementById('style-switch');
-  if (switcher) {
-    var buttons = switcher.querySelectorAll('.ss-panel button');
-    var toggleBtn = switcher.querySelector('.ss-toggle');
-    var normalize = function (t) {
-      if (t === 'refined') return 'light';
-      if (t === 'original') return 'classic';
-      return (t === 'light' || t === 'dark') ? t : 'classic';
-    };
-    var reflect = function (theme) {
-      buttons.forEach(function (b) {
-        b.setAttribute('aria-pressed', String(b.getAttribute('data-theme') === theme));
-      });
-      if (toggleBtn) toggleBtn.textContent = theme.charAt(0).toUpperCase() + theme.slice(1);
-    };
-    var apply = function (theme) {
-      var link = document.getElementById('theme-css');
-      if (theme === 'light' || theme === 'dark') {
-        var base = document.querySelector('link[rel="stylesheet"]');
-        if (!link) {
-          link = document.createElement('link');
-          link.rel = 'stylesheet';
-          link.id = 'theme-css';
-          document.head.appendChild(link);
-        }
-        link.href = base.getAttribute('href').replace('style.css', theme + '.css');
-        document.documentElement.setAttribute('data-theme', theme);
-      } else {
-        if (link) link.remove();
-        document.documentElement.removeAttribute('data-theme');
-        if (header) header.classList.remove('is-hidden');
-      }
-      try { localStorage.setItem('ba-theme', theme); } catch (e) {}
-      reflect(theme);
-    };
-    buttons.forEach(function (b) {
-      b.addEventListener('click', function () { apply(b.getAttribute('data-theme')); });
-    });
-    var current = 'classic';
-    try { current = normalize(localStorage.getItem('ba-theme')); } catch (e) {}
-    reflect(current);
-  }
 
   // Light/Dark studies: the header slips away on scroll down and returns
   // on scroll up (Classic keeps its always-fixed header).

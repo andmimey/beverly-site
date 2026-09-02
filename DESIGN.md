@@ -2,10 +2,10 @@
 
 ## Overview
 
-Three themes over one markup, selected from the corner switcher (bx-contrast icon, bottom-right; hover to open) and persisted in localStorage (`ba-theme`: classic | light | dark, applied before first paint by a head snippet).
+Three self-contained page trees — `/dark/` (default landing; the root redirects there), `/light/`, and `/classic/` — each hard-linking its own stylesheets. No runtime theme switching.
 
-- `css/style.css` — base + **Classic**, the faithful transcription of the original Divi site.
-- `css/light.css` / `css/dark.css` — token skins for the two studies; both `@import` the shared structure in `css/study.css`.
+- `css/style.css` — base + **Classic** (the `/classic/` tree links only this).
+- `css/light.css` / `css/dark.css` — token skins linked by their trees on top of the base; both `@import` the shared structure in `css/study.css`.
 
 ## Theme: Classic (default)
 
