@@ -56,3 +56,11 @@ The site is plain static files with relative links, so GitHub Pages works as-is:
 Settings → Pages → Deploy from branch → `main` / root. `.nojekyll` is included so
 Pages serves files verbatim. It will work at both
 `https://andmimey.github.io/beverly-site/` and a custom domain.
+
+Open Graph images and the 404 page's asset links use the absolute base URL
+`https://andmimey.github.io/beverly-site/`. When the site moves to Beverly's
+domain, swap it in one pass:
+
+```sh
+grep -rl 'andmimey.github.io/beverly-site' --include='*.html' . | xargs   sed -i '' 's|https://andmimey.github.io/beverly-site/|https://NEW-DOMAIN/|g'
+```
