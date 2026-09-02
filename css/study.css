@@ -49,6 +49,7 @@ a:hover { color: var(--color-accent-text); }
 
 #logo { display: none; }
 .logo_container a::before {
+  -webkit-text-stroke: 0.4px currentColor;
   content: "BACH ARCHITECTURE";
   font-family: 'ger', 'Archivo', Helvetica, sans-serif;
   font-size: 21px;
@@ -171,7 +172,7 @@ a:hover { color: var(--color-accent-text); }
 
 /* Prev / next project ----------------------------------------------------- */
 
-.proj-nav { display: block; background-color: var(--color-bg); }
+.proj-nav { display: block; }
 .proj-nav .row {
   width: var(--row-width);
   max-width: var(--row-max-width);

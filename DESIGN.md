@@ -9,7 +9,7 @@ Three self-contained page trees — `/dark/` (default landing; the root redirect
 
 ## Theme: Classic (default)
 
-Faithful replica of the live site: gray #7e7e7e ground, #686868 title bands, Abel 14px, white text, orange #f48b2e current-nav, 99px fixed header, logo PNG, hover dropdowns with Divi's outside-hanging flyout arrows, sub-sub menus opening left, centered © line.
+Faithful replica of the live site, rebuilt against measured computed styles: gray #7e7e7e ground, #686868 title bands, Abel 14px, white text, orange #f48b2e current-nav, 99px fixed header, logo PNG, hover dropdowns (240px panels, bold 28px-line-height items, ETmodules chevron glyphs inside the panel, 3px white top border, soft shadow), sub-sub menus opening left, separate About and Bio pages, the original Google map, dead WORK/FIRM labels, no work overview page, centered © line.
 
 ## Themes: Light and Dark studies
 
