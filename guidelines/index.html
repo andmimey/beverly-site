@@ -129,12 +129,11 @@ ul.gl-list li { padding-bottom: 8px; max-width: 60ch; }
       <p class="gl-note">Grounds are purely neutral greys, equal RGB, no warmth, with a very subtle top-to-bottom wash fixed to the viewport (Light #F7F7F6&#8594;#EFEFEE, Dark #656565&#8594;#5C5C5C around the base values). One orange per theme, used for words in their active or hovered state and for the active-thumbnail outline. Never for backgrounds, rules, or decoration. Classic keeps its transcribed palette (#7E7E7E, #686868, #F48B2E).</p>
 
       <span class="gl-label">Typography</span>
-      <p class="gl-type-sample" style="font-weight:400">Archivo 400, 14px, sentence case: all prose.</p>
-      <p class="gl-type-sample" style="font-weight:400">Archivo 400, 14px, sentence case: nav links (the footer voice)</p>
-      <p class="gl-type-sample" style="font-weight:500;text-transform:uppercase;letter-spacing:.06em">Archivo 500, 14px, caps, 0.06em: labels, categories, jump links</p>
-      <p class="gl-type-sample" style="font-weight:700;text-transform:uppercase;letter-spacing:.06em">Archivo 700, 14px, caps, 0.06em: page titles, kickers</p>
+      <p class="gl-type-sample">Archivo regular, 14px, sentence case: all prose and nav links.</p>
+      <p class="gl-type-sample" style="text-transform:uppercase;letter-spacing:.06em">Archivo regular, 14px, caps, 0.06em: labels, categories, jump links</p>
+      <p class="gl-type-sample" style="font-weight:bold;text-transform:uppercase;letter-spacing:.06em">Archivo bold, 14px, caps, 0.06em: page titles, kickers</p>
       <p class="gl-type-sample gl-wordmark">BACH ARCHITECTURE &mdash; Germano, 21px, the wordmark only</p>
-      <p class="gl-note">One size: 14px. Hierarchy is weight (400 / 500 / 700) plus case, never scale. Nav links share the footer voice: regular weight, sentence case, no tracking. Every uppercase run tracks at 0.06em. The Germano wordmark (the logo face from the original site) is the single larger element. Body line-height 1.6; prose measure capped at 60ch.</p>
+      <p class="gl-note">One size: 14px, and exactly two weights: regular and bold. No in-between weights. Hierarchy comes from case, tracking, and bold — never scale. Nav links share the footer voice: regular, sentence case, no tracking. Every uppercase run tracks at 0.06em. The Germano wordmark (the logo face from the original site) is the single larger element. Body line-height 1.6; prose measure capped at 60ch.</p>
 
       <span class="gl-label">Spacing</span>
       <div class="gl-bar" style="width:8px;background:currentColor"></div>
@@ -152,7 +151,7 @@ ul.gl-list li { padding-bottom: 8px; max-width: 60ch; }
         <li>Work overview: WORK and the category jump links share the title baseline; tile grids by category; names turn orange on hover.</li>
         <li>Footer: &copy; / address / phone+email spread left-middle-right on one baseline; phone and email are live links, hover orange; line breaks only at phrase seams (the email never splits); stacks flush-left below 1000px; pinned to the viewport bottom on short pages.</li>
         <li>Contact map: a custom-styled vector map (MapLibre + OpenFreeMap tiles, style JSON in site tokens) — theme-aware linework, orange dot, zoom and pan, no third-party chrome. The address itself links to the visitor&#8217;s maps app.</li>
-        <li>Theme switcher: bottom-right contrast icon, three options with ground swatches.</li>
+        <li>Theme switcher: bottom-right, a quiet word naming the active theme (footer voice, orange on hover); hover opens the three options with ground swatches.</li>
       </ul>
 
       <span class="gl-label">Rules</span>
@@ -175,9 +174,7 @@ ul.gl-list li { padding-bottom: 8px; max-width: 60ch; }
 
 </div>
 <div id="style-switch">
-  <button class="ss-toggle" aria-label="Display options" aria-haspopup="true">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M1 23h22V1H1zm4.06-3L20 5.06V20zM18.94 4 4 18.94V4z"/><path fill="currentColor" d="M7.25 11h1.5V8.75H11v-1.5H8.75V5h-1.5v2.25H5v1.5h2.25zM13 15.25h6v1.5h-6z"/></svg>
-  </button>
+  <button class="ss-toggle" aria-label="Display options" aria-haspopup="true">Classic</button>
   <div class="ss-panel">
     <button data-theme="classic" aria-pressed="true"><span class="swatch" style="background:#7e7e7e"></span><span>Classic</span></button>
     <button data-theme="light" aria-pressed="false"><span class="swatch" style="background:#f4f4f4"></span><span>Light</span></button>

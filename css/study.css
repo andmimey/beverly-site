@@ -82,6 +82,7 @@ a:hover { color: var(--color-accent-text); }
   font-weight: 400;
   font-size: 14px;
   line-height: 1;
+  letter-spacing: normal;
 }
 #menu-toggle { float: none; margin: -6px 0 0 auto; align-self: center; }
 #top-menu > li > a:hover { opacity: 1; color: var(--color-accent-text); }
@@ -100,7 +101,7 @@ a:hover { color: var(--color-accent-text); }
 .band-title { padding-top: var(--l); padding-bottom: 0; }
 .band-title h4 {
   font-size: var(--font-size-h4);
-  font-weight: 700;
+  font-weight: bold;
   letter-spacing: 0.06em;
   line-height: 1.3;
   padding-bottom: 0;
@@ -153,7 +154,6 @@ a:hover { color: var(--color-accent-text); }
 .band-workindex .row { padding-top: var(--m); }
 .wi-cat {
   font-size: 14px;
-  font-weight: 500;
   letter-spacing: 0.06em;
   padding: var(--l) 0 var(--m);
 }
@@ -162,7 +162,6 @@ a:hover { color: var(--color-accent-text); }
 .wi-jump { display: flex; gap: var(--m); }
 .wi-jump a {
   margin-right: 0;
-  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.06em;
 }
@@ -183,7 +182,6 @@ a:hover { color: var(--color-accent-text); }
   gap: var(--m);
 }
 .proj-nav a {
-  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.06em;
 }
@@ -198,7 +196,7 @@ a:hover { color: var(--color-accent-text); }
 .band-info .col-1-3 strong,
 .band-info .col-1-3 b {
   display: block;
-  font-weight: 500;
+  font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.06em;
 }
@@ -211,10 +209,7 @@ a:hover { color: var(--color-accent-text); }
   max-width: 60ch;
   text-wrap: pretty;
 }
-.band-info .col-2-3 strong {
-  font-weight: 700;
-  letter-spacing: 0.06em;
-}
+.band-info .col-2-3 strong { letter-spacing: 0.06em; }
 
 /* Site info: left / middle / right on wide screens, a flush-left stack
    below 1000px — the three segments never wrap mid-group ----------------- */
@@ -265,10 +260,17 @@ a:hover { color: var(--color-accent-text); }
   background: var(--panel-bg);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
 }
+#style-switch .ss-toggle {
+  font-weight: 400;
+  letter-spacing: normal;
+  text-transform: none;
+}
+#style-switch .ss-toggle:hover { color: var(--color-accent-text); }
 #style-switch .ss-panel button {
   font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0.06em;
+  font-weight: 400;
+  letter-spacing: normal;
+  text-transform: none;
 }
 #style-switch .ss-panel button:hover { background: var(--panel-hover); }
 #style-switch .ss-panel button[aria-pressed="true"] { color: var(--color-accent-text); }

@@ -413,18 +413,20 @@ main > .band-siteinfo { margin-top: auto; }
 
 #style-switch .ss-toggle {
   display: block;
-  width: 34px;
-  height: 34px;
-  padding: 8px;
+  padding: 8px 2px;
   background: none;
   color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: var(--nav-letter-spacing);
+  text-transform: uppercase;
   cursor: pointer;
   opacity: 0.45;
   transition: opacity 0.2s ease-in-out;
 }
 #style-switch:hover .ss-toggle,
 #style-switch:focus-within .ss-toggle { opacity: 1; }
-#style-switch .ss-toggle svg { display: block; width: 18px; height: 18px; }
 
 #style-switch .ss-panel {
   position: absolute;

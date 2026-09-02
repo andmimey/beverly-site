@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var switcher = document.getElementById('style-switch');
   if (switcher) {
     var buttons = switcher.querySelectorAll('.ss-panel button');
+    var toggleBtn = switcher.querySelector('.ss-toggle');
     var normalize = function (t) {
       if (t === 'refined') return 'light';
       if (t === 'original') return 'classic';
@@ -36,6 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
       buttons.forEach(function (b) {
         b.setAttribute('aria-pressed', String(b.getAttribute('data-theme') === theme));
       });
+      if (toggleBtn) toggleBtn.textContent = theme.charAt(0).toUpperCase() + theme.slice(1);
     };
     var apply = function (theme) {
       var link = document.getElementById('theme-css');
