@@ -241,14 +241,17 @@ body::before {
 .addr-link:hover { color: var(--color-accent-text); }
 .map-embed .maplibregl-ctrl-group { background: var(--panel-bg); }
 
-/* Home: photography close to the top -------------------------------------- */
-
-.band-home .row { padding-top: var(--m); }
-
 /* About / Bio / Contact --------------------------------------------------- */
 
 .band .row { padding-top: var(--l); padding-bottom: 0; }
 .band-title .row, .band-gallery .row, .band-info .row, .band-workindex .row { padding-bottom: 0; }
+
+/* Home: the collage centers in the space between masthead and footer;
+   only a too-short window pushes the footer below the fold ------------- */
+
+.band-home { display: flex; flex: 1 0 auto; }
+.band-home .row { margin: auto; padding: 0; }
+
 #bio .row { padding-top: var(--l); }
 
 /* Style switcher ---------------------------------------------------------- */
@@ -297,14 +300,29 @@ html[data-theme="dark"] .map-embed .maplibregl-ctrl-attrib-button { filter: inve
 
 /* Responsive -------------------------------------------------------------- */
 
-@media all and (max-width: 1000px) {
+/* Middle widths: the single line no longer fits — each group becomes a
+   column of two stacked lines (still spread left / middle / right),
+   shedding the one-line punctuation with the split */
+@media all and (max-width: 1349px) {
+  .band-siteinfo .si-left .nb,
+  .band-siteinfo .si-mid .nb,
+  .band-siteinfo .si-right .nb { display: block; }
+  .band-siteinfo .p1 { display: none; }
+}
+
+/* Small screens: a single flush-left column, one line per group,
+   punctuation restored */
+@media all and (max-width: 750px) {
   .band-siteinfo p {
     flex-direction: column;
     align-items: flex-start;
     gap: var(--s);
   }
+  .band-siteinfo .si-left .nb,
+  .band-siteinfo .si-mid .nb,
+  .band-siteinfo .si-right .nb { display: inline; }
+  .band-siteinfo .p1 { display: inline; }
   .band-siteinfo .row { padding-bottom: var(--m); }
-  .band-siteinfo .row { margin-top: var(--l); }
 }
 
 @media all and (max-width: 980px) {
