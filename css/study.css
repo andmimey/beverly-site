@@ -224,7 +224,7 @@ body { font-weight: 400; }
 .band-siteinfo .si-mid,
 .band-siteinfo .si-right { flex-shrink: 0; }
 .band-siteinfo .si-sep { display: none; }
-.band-siteinfo .si-right a[href^="mailto"] { margin-left: var(--m); }
+.band-siteinfo .si-dot { display: inline; }
 .band-siteinfo a:hover { color: var(--color-accent-text); }
 .addr-link:hover { color: var(--color-accent-text); }
 .map-embed .maplibregl-ctrl-group { background: var(--panel-bg); }
@@ -318,7 +318,8 @@ html[data-theme="dark"] .map-embed .maplibregl-ctrl-attrib-button { filter: inve
    one-line separator punctuation goes with them */
 @media all and (max-width: 480px) {
   .band-siteinfo .si-left .nb,
-  .band-siteinfo .si-mid .nb { display: block; }
+  .band-siteinfo .si-mid .nb,
+  .band-siteinfo .si-right .nb { display: block; }
   .band-siteinfo .p1 { display: none; }
 }
 
