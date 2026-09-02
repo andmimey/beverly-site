@@ -207,21 +207,24 @@ body { font-weight: 400; }
 .band-siteinfo .row {
   margin-top: var(--l);
   padding-top: 0;
-  /* mirrors the masthead's 26px top offset for window symmetry */
-  padding-bottom: 26px;
+  /* a full chapter break below, answering the 64px masthead band */
+  padding-bottom: var(--l);
 }
 .band-siteinfo p {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: baseline;
   gap: var(--s) var(--m);
   text-align: left;
 }
+/* groups never shrink or wrap internally; a tight footer drops whole
+   groups to the next line instead */
+.band-siteinfo .si-left,
+.band-siteinfo .si-mid,
+.band-siteinfo .si-right { flex-shrink: 0; }
 .band-siteinfo .si-sep { display: none; }
-.band-siteinfo .si-right .si-sep-in {
-  display: inline;
-  visibility: hidden;
-}
+.band-siteinfo .si-right a[href^="mailto"] { margin-left: var(--m); }
 .band-siteinfo a:hover { color: var(--color-accent-text); }
 .addr-link:hover { color: var(--color-accent-text); }
 .map-embed .maplibregl-ctrl-group { background: var(--panel-bg); }
@@ -266,7 +269,10 @@ body { font-weight: 400; }
 }
 
 html[data-theme="dark"] .map-embed .maplibregl-ctrl button span { filter: invert(1); }
-html[data-theme="dark"] .map-embed .maplibregl-ctrl-attrib a { color: rgba(255,255,255,0.8); }
+html[data-theme="dark"] .map-embed .maplibregl-ctrl-attrib.maplibregl-compact-show { background: rgba(0, 0, 0, 0.35); }
+html[data-theme="dark"] .map-embed .maplibregl-ctrl-attrib,
+html[data-theme="dark"] .map-embed .maplibregl-ctrl-attrib a { color: rgba(255, 255, 255, 0.7); }
+html[data-theme="dark"] .map-embed .maplibregl-ctrl-attrib-button { filter: invert(1); }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -285,7 +291,7 @@ html[data-theme="dark"] .map-embed .maplibregl-ctrl-attrib a { color: rgba(255,2
     align-items: flex-start;
     gap: var(--s);
   }
-  .band-siteinfo .row { padding-bottom: 16px; }
+  .band-siteinfo .row { padding-bottom: var(--m); }
   .band-siteinfo .row { margin-top: var(--l); }
 }
 

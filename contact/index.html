@@ -90,8 +90,8 @@
       <div class="col col-1-3">
         <div class="module">
           <p><b>BACH ARCHITECTURE</b><br>
-          <a class="addr-link" href="https://maps.apple.com/?address=3752%2020th%20Street%2C%20San%20Francisco%2C%20CA%2094110">3752 20th Street, San Francisco, CA 94110</a><br>
-          (415) 425-8582<br>
+          <a class="addr-link" href="https://maps.apple.com/?address=3752%2020th%20Street%2C%20San%20Francisco%2C%20CA%2094110">3752 20th Street<br>San Francisco, CA 94110</a><br>
+          <a href="tel:+14154258582">(415) 425-8582</a><br>
           <a href="mailto:bc@bach-architecture.com">bc@bach-architecture.com</a></p>
         </div>
       </div>
@@ -166,11 +166,19 @@
           layout: { 'text-field': ['upcase', ['get', 'name']], 'text-font': ['Noto Sans Regular'], 'text-size': 12, 'text-letter-spacing': 0.06 },
           paint: { 'text-color': p.ink, 'text-opacity': p.label } },
         { id: 'hq-dot', type: 'circle', source: 'hq',
-          paint: { 'circle-radius': 8, 'circle-color': p.marker } }
+          paint: { 'circle-radius': 8, 'circle-color': p.marker } },
+        { id: 'hq-label', type: 'symbol', source: 'hq',
+          layout: { 'text-field': 'BACH ARCHITECTURE', 'text-font': ['Noto Sans Bold'], 'text-size': 12,
+            'text-letter-spacing': 0.06, 'text-anchor': 'left', 'text-offset': [1.1, 0] },
+          paint: { 'text-color': p.ink } }
       ]
     }
   });
   map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
+  map.once('load', function () {
+    var d = document.querySelector('#contact-map details.maplibregl-compact');
+    if (d) { d.removeAttribute('open'); d.classList.remove('maplibregl-compact-show'); }
+  });
   new MutationObserver(function () {
     var q = palette();
     map.setPaintProperty('bg', 'background-color', q.ground);
@@ -183,6 +191,7 @@
     map.setPaintProperty('places', 'text-color', q.ink);
     map.setPaintProperty('places', 'text-opacity', q.label);
     map.setPaintProperty('hq-dot', 'circle-color', q.marker);
+    map.setPaintProperty('hq-label', 'text-color', q.ink);
   }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
 })();
 </script>
