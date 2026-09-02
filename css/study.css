@@ -42,13 +42,33 @@ body { font-weight: 400; }
   line-height: 1;
 }
 
-#site-nav { padding-top: 21px; }
-#top-menu > li > a { padding-bottom: 20px; }
+#site-header .container {
+  height: auto;
+  display: flex;
+  align-items: baseline;
+  padding: 26px 0 17px;   /* composes the 64px band around the 21px wordmark */
+  box-sizing: border-box;
+}
+.logo_container {
+  position: static;
+  height: auto;
+  display: block;
+}
+#site-nav { float: none; margin-left: auto; padding: 0; }
+#top-menu {
+  line-height: 1;
+  display: flex;
+  gap: var(--m);
+}
+#top-menu > li { padding-right: 0; }
+#top-menu > li > a { padding-bottom: 0; }
 #top-menu a {
   font-weight: 500;
   font-size: 14px;
+  line-height: 1;
   letter-spacing: 0.06em;
 }
+#menu-toggle { float: none; margin: -6px 0 0 auto; align-self: center; }
 #top-menu > li > a:hover { opacity: 1; color: var(--color-accent-text); }
 #top-menu li.current-menu-item > a,
 #top-menu li.current-menu-ancestor > a {
@@ -200,6 +220,7 @@ body { font-weight: 400; }
   display: inline;
   visibility: hidden;
 }
+.band-siteinfo a:hover { color: var(--color-accent-text); }
 
 /* Home: photography close to the top -------------------------------------- */
 
@@ -270,7 +291,8 @@ body { font-weight: 400; }
     background: var(--panel-bg);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
   }
-  #site-nav.open #top-menu a { border-bottom-color: var(--keyline); }
+  #site-nav.open #top-menu { flex-direction: column; gap: 0; }
+  #site-nav.open #top-menu a { border-bottom: 0; padding: var(--s) 5%; }
   .band-title { padding-top: var(--m); }
   .band-info { padding-top: var(--l); }
 }
