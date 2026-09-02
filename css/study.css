@@ -224,8 +224,8 @@ a:hover { color: var(--color-accent-text); }
 .band.band-siteinfo .row {
   margin-top: var(--l);
   padding-top: 0;
-  /* a full chapter break below, answering the 64px masthead band */
-  padding-bottom: var(--l);
+  /* window symmetry: matches the masthead's top offset */
+  padding-bottom: var(--m);
 }
 .band-siteinfo p {
   display: flex;
