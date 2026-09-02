@@ -37,8 +37,8 @@ ul.gl-list li { padding-bottom: 8px; max-width: 60ch; }
     <button id="menu-toggle" aria-label="Menu">&#9776;</button>
     <nav id="site-nav">
       <ul id="top-menu">
-        <li><a href="../">HOME</a></li>
-        <li class="menu-item-has-children"><a href="../work/">WORK</a>
+        <li><a href="../">Home</a></li>
+        <li class="menu-item-has-children"><a href="../work/">Work</a>
           <ul>
             <li class="menu-item-has-children"><a href="#">RESIDENTIAL</a>
               <ul>
@@ -86,13 +86,13 @@ ul.gl-list li { padding-bottom: 8px; max-width: 60ch; }
             </li>
           </ul>
         </li>
-        <li class="menu-item-has-children"><a href="../about/">FIRM</a>
+        <li class="menu-item-has-children"><a href="../about/">Firm</a>
           <ul>
             <li><a href="../about/">ABOUT</a></li>
             <li><a href="../about/#bio">BIO</a></li>
           </ul>
         </li>
-        <li><a href="../contact/">CONTACT</a></li>
+        <li><a href="../contact/">Contact</a></li>
       </ul>
     </nav>
   </div>
@@ -130,20 +130,20 @@ ul.gl-list li { padding-bottom: 8px; max-width: 60ch; }
 
       <span class="gl-label">Typography</span>
       <p class="gl-type-sample" style="font-weight:400">Archivo 400, 14px, sentence case: all prose.</p>
-      <p class="gl-type-sample" style="font-weight:400;text-transform:uppercase;letter-spacing:.06em">Archivo 400, 14px, caps, 0.06em: nav links</p>
+      <p class="gl-type-sample" style="font-weight:400">Archivo 400, 14px, sentence case: nav links (the footer voice)</p>
       <p class="gl-type-sample" style="font-weight:500;text-transform:uppercase;letter-spacing:.06em">Archivo 500, 14px, caps, 0.06em: labels, categories, jump links</p>
       <p class="gl-type-sample" style="font-weight:700;text-transform:uppercase;letter-spacing:.06em">Archivo 700, 14px, caps, 0.06em: page titles, kickers</p>
       <p class="gl-type-sample gl-wordmark">BACH ARCHITECTURE &mdash; Germano, 21px, the wordmark only</p>
-      <p class="gl-note">One size: 14px. Hierarchy is weight (400 / 500 / 700) plus case, never scale. Nav links stay regular weight; caps and tracking carry them. Every uppercase run tracks at 0.06em. The Germano wordmark (the logo face from the original site) is the single larger element. Body line-height 1.6; prose measure capped at 60ch.</p>
+      <p class="gl-note">One size: 14px. Hierarchy is weight (400 / 500 / 700) plus case, never scale. Nav links share the footer voice: regular weight, sentence case, no tracking. Every uppercase run tracks at 0.06em. The Germano wordmark (the logo face from the original site) is the single larger element. Body line-height 1.6; prose measure capped at 60ch.</p>
 
       <span class="gl-label">Spacing</span>
       <div class="gl-bar" style="width:8px;background:currentColor"></div>
       <div class="gl-bar" style="width:24px;background:currentColor"></div>
       <div class="gl-bar" style="width:64px;background:currentColor"></div>
-      <p class="gl-note">Three steps only. S&nbsp;=&nbsp;8px for micro gaps (thumbnail gutters, stacked footer lines). M&nbsp;=&nbsp;24px within a section (plate to contact sheet, grid gaps, category label to grid). L&nbsp;=&nbsp;64px between chapters (title to page top, gallery to credits, chapter to chapter, footer clearance). Available as var(--s), var(--m), var(--l) in css/study.css. The 64px masthead and its centering paddings derive from the same constant.</p>
+      <p class="gl-note">Three steps only. S&nbsp;=&nbsp;8px for micro gaps (thumbnail gutters, stacked footer lines). M&nbsp;=&nbsp;24px within a section (plate to contact sheet, grid gaps, category label to grid). L&nbsp;=&nbsp;64px between chapters (title to page top, gallery to credits, chapter to chapter, footer clearance). The masthead&#8217;s 26px top offset mirrors as the footer&#8217;s bottom offset. Available as var(--s), var(--m), var(--l) in css/study.css. The 64px masthead and its centering paddings derive from the same constant.</p>
 
       <span class="gl-label">Grid</span>
-      <p class="gl-note">Rows are 80% wide, 1080px max, always centered as a block and flush-left inside. Two column patterns: 1/3&nbsp;+&nbsp;2/3 (credits and description, firm chapters, contact) and the auto-fill tile grid, minmax(200px,&nbsp;1fr), for the work overview. Images fill their frame with object-fit: cover; paired images share one aspect ratio (the firm page uses squares, crop biased toward the top of the frame).</p>
+      <p class="gl-note">Rows are 80% wide, 1080px max, always centered as a block and flush-left inside. Two column patterns: 1/3&nbsp;+&nbsp;2/3 (credits and description, firm chapters, contact) and the auto-fill tile grid, minmax(200px,&nbsp;1fr), for the work overview. Images fill their frame with object-fit: cover; paired images share one aspect ratio (the firm page shows both images at natural aspect).</p>
 
       <span class="gl-label">Components</span>
       <ul class="gl-list">
@@ -151,7 +151,7 @@ ul.gl-list li { padding-bottom: 8px; max-width: 60ch; }
         <li>Project page: title, full-width plate flush left (66vh, contain), contact-sheet strip, credits 1/3 + description 2/3, prev/next, footer.</li>
         <li>Work overview: WORK and the category jump links share the title baseline; tile grids by category; names turn orange on hover.</li>
         <li>Footer: &copy; / address / phone+email spread left-middle-right on one baseline; phone and email are live links, hover orange; line breaks only at phrase seams (the email never splits); stacks flush-left below 1000px; pinned to the viewport bottom on short pages.</li>
-        <li>Contact map: a hand-drawn SVG street grid in site tokens with an orange pin, linking out to Google Maps. No embeds.</li>
+        <li>Contact map: a custom-styled vector map (MapLibre + OpenFreeMap tiles, style JSON in site tokens) — theme-aware linework, orange dot, zoom and pan, no third-party chrome. The address itself links to the visitor&#8217;s maps app.</li>
         <li>Theme switcher: bottom-right contrast icon, three options with ground swatches.</li>
       </ul>
 

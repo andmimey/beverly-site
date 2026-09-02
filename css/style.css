@@ -156,7 +156,7 @@ main > .band-siteinfo { margin-top: auto; }
   line-height: var(--line-height-body);
   transition: opacity 0.4s ease-in-out;
 }
-#top-menu > li > a { padding-bottom: 37px; }
+#top-menu > li > a { padding-bottom: 37px; text-transform: uppercase; }
 #top-menu > li > a:hover { opacity: 0.7; }
 #top-menu li.current-menu-item > a,
 #top-menu li.current-menu-ancestor > a { color: var(--color-accent); }
@@ -380,17 +380,14 @@ main > .band-siteinfo { margin-top: auto; }
 
 .firm-img {
   width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  /* keep heads and skylights: bias the square crop toward the top */
-  object-position: 50% 18%;
+  height: auto;
   display: block;
 }
 
 .map-wrap { position: relative; }
-.map-svg { width: 100%; height: auto; display: block; }
-.map-link { display: block; }
-.map-caption { padding-top: 8px; }
+.map-embed { width: 100%; height: 440px; }
+.map-embed .maplibregl-ctrl-group { border-radius: 0; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); }
+.map-embed .maplibregl-ctrl-attrib { background: transparent; font-size: 11px; }
 
 /* Style switcher (corner icon, hover to open) ----------------------------- */
 

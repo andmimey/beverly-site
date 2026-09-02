@@ -62,11 +62,11 @@ body { font-weight: 400; }
 }
 #top-menu > li { padding-right: 0; }
 #top-menu > li > a { padding-bottom: 0; }
+#top-menu > li > a { text-transform: none; }
 #top-menu a {
   font-weight: 400;
   font-size: 14px;
   line-height: 1;
-  letter-spacing: 0.06em;
 }
 #menu-toggle { float: none; margin: -6px 0 0 auto; align-self: center; }
 #top-menu > li > a:hover { opacity: 1; color: var(--color-accent-text); }
@@ -207,7 +207,8 @@ body { font-weight: 400; }
 .band-siteinfo .row {
   margin-top: var(--l);
   padding-top: 0;
-  padding-bottom: var(--l);
+  /* mirrors the masthead's 26px top offset for window symmetry */
+  padding-bottom: 26px;
 }
 .band-siteinfo p {
   display: flex;
@@ -222,9 +223,8 @@ body { font-weight: 400; }
   visibility: hidden;
 }
 .band-siteinfo a:hover { color: var(--color-accent-text); }
-.map-caption a { font-weight: 500; }
-.map-caption a:hover { color: var(--color-accent-text); }
-.map-svg circle { fill: var(--color-accent-mark); }
+.addr-link:hover { color: var(--color-accent-text); }
+.map-embed .maplibregl-ctrl-group { background: var(--panel-bg); }
 
 /* Home: photography close to the top -------------------------------------- */
 
@@ -265,6 +265,9 @@ body { font-weight: 400; }
   outline-offset: 2px;
 }
 
+html[data-theme="dark"] .map-embed .maplibregl-ctrl button span { filter: invert(1); }
+html[data-theme="dark"] .map-embed .maplibregl-ctrl-attrib a { color: rgba(255,255,255,0.8); }
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     transition-duration: 0.01ms !important;
@@ -282,6 +285,7 @@ body { font-weight: 400; }
     align-items: flex-start;
     gap: var(--s);
   }
+  .band-siteinfo .row { padding-bottom: 16px; }
   .band-siteinfo .row { margin-top: var(--l); }
 }
 
