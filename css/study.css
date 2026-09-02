@@ -63,7 +63,7 @@ body { font-weight: 400; }
 #top-menu > li { padding-right: 0; }
 #top-menu > li > a { padding-bottom: 0; }
 #top-menu a {
-  font-weight: 500;
+  font-weight: 400;
   font-size: 14px;
   line-height: 1;
   letter-spacing: 0.06em;
@@ -207,7 +207,7 @@ body { font-weight: 400; }
 .band-siteinfo .row {
   margin-top: var(--l);
   padding-top: 0;
-  padding-bottom: var(--m);
+  padding-bottom: var(--l);
 }
 .band-siteinfo p {
   display: flex;
@@ -286,13 +286,16 @@ body { font-weight: 400; }
 }
 
 @media all and (max-width: 980px) {
-  #site-nav.open {
-    border-top: 0;
-    background: var(--panel-bg);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  :root { --header-height: 74px; }
+  #menu-toggle { display: none; }
+  #site-header .container {
+    flex-wrap: wrap;
+    row-gap: var(--s);
+    padding: 16px 0 15px;
   }
-  #site-nav.open #top-menu { flex-direction: column; gap: 0; }
-  #site-nav.open #top-menu a { border-bottom: 0; padding: var(--s) 5%; }
+  .logo_container { flex-basis: 100%; }
+  #site-nav { display: block; float: none; margin-left: 0; padding: 0; }
+  #top-menu { flex-wrap: wrap; }
   .band-title { padding-top: var(--m); }
   .band-info { padding-top: var(--l); }
 }
