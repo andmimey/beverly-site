@@ -314,6 +314,14 @@ html[data-theme="dark"] .map-embed .maplibregl-ctrl-attrib-button { filter: inve
   .ba-thumb { height: 44px; margin: 0 var(--s) var(--s) 0; }
 }
 
+/* Very narrow screens: © and address stack deliberately, and the
+   one-line separator punctuation goes with them */
+@media all and (max-width: 480px) {
+  .band-siteinfo .si-left .nb,
+  .band-siteinfo .si-mid .nb { display: block; }
+  .band-siteinfo .p1 { display: none; }
+}
+
 @media screen and (max-width: 736px) {
   .ba-preview-wrap {
     width: 100%;
