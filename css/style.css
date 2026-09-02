@@ -336,6 +336,24 @@ h6 { font-size: 14px; }
 .hc-c { grid-area: 1 / 5 / 2 / 6; }
 .hc-d { grid-area: 3 / 3 / 4 / 6; }
 
+/* Work overview page ------------------------------------------------------ */
+
+.band-workindex .row { padding-top: 2%; }
+.wi-cat { font-size: 14px; font-weight: 700; letter-spacing: 1px; padding: 30px 0 12px; }
+.wi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 22px 18px;
+}
+.wi-item { display: block; }
+.wi-img { display: block; aspect-ratio: 4 / 3; overflow: hidden; }
+.wi-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: opacity 0.2s ease-in-out; }
+.wi-item:hover .wi-img img { opacity: 0.85; }
+.wi-name { display: block; padding-top: 6px; }
+
+/* Firm sub-navigation: only the Light/Dark studies show it */
+.firm-subnav { display: none; }
+
 /* About / Bio / Contact --------------------------------------------------- */
 
 .bio-photo {
@@ -367,6 +385,7 @@ h6 { font-size: 14px; }
   height: 34px;
   padding: 8px;
   background: none;
+  color: var(--color-text);
   cursor: pointer;
   opacity: 0.45;
   transition: opacity 0.2s ease-in-out;
@@ -374,7 +393,6 @@ h6 { font-size: 14px; }
 #style-switch:hover .ss-toggle,
 #style-switch:focus-within .ss-toggle { opacity: 1; }
 #style-switch .ss-toggle svg { display: block; width: 18px; height: 18px; }
-#style-switch .ss-toggle rect { fill: none; stroke: var(--color-text); stroke-width: 1.5; }
 
 #style-switch .ss-panel {
   position: absolute;
@@ -393,9 +411,11 @@ h6 { font-size: 14px; }
 #style-switch:focus-within .ss-panel { visibility: visible; opacity: 1; }
 
 #style-switch .ss-panel button {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 10px;
   width: 100%;
-  padding: 8px 16px;
+  padding: 9px 16px;
   background: none;
   color: var(--color-text);
   font-family: var(--font-body);
@@ -406,6 +426,13 @@ h6 { font-size: 14px; }
   text-align: left;
   cursor: pointer;
   box-sizing: border-box;
+}
+#style-switch .swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.35);
+  flex: none;
 }
 #style-switch .ss-panel button:hover { background: rgba(0, 0, 0, 0.12); }
 #style-switch .ss-panel button[aria-pressed="true"] { color: var(--color-accent); }

@@ -1,10 +1,9 @@
 /* ==========================================================================
-   Bach Architecture — "Refined" theme
-   Register: the architecture monograph (TASCHEN's Neutra volume as the
-   reference): a quiet neo-grotesque at small sizes, hierarchy barely a
-   whisper, no rules anywhere — separation is whitespace and placement,
-   photography carries the page. Beverly's orange stays as the single
-   accent mark. Pure override layer: same markup, loaded after style.css.
+   Bach Architecture — shared structure for the Light and Dark studies.
+   Register: the architecture monograph. Quiet grotesque at two sizes,
+   hierarchy barely a whisper, no divider lines, everything flush-left,
+   photography carrying the page. Loaded via light.css / dark.css, which
+   supply the color tokens; this file is structural only.
    ========================================================================== */
 
 @font-face {
@@ -15,69 +14,50 @@
   src: url('../fonts/archivo-var.woff2') format('woff2');
 }
 
-:root {
-  --color-bg: #f5f5f4;
-  --color-band-title: #f5f5f4;
-  --color-header-bg: #f5f5f4;
-  --color-text: #111110;
-  --color-link: #111110;
-  --color-submenu-link: #111110;
-  --color-accent-mark: #d96c0a;        /* ≥3:1 mark orange */
-  --color-accent-text: #b04f08;        /* 4.8:1 text orange */
-
-  --font-body: 'Archivo', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  --font-size-body: 14px;
-  --line-height-body: 1.6;
-  --font-size-h4: 17px;
-  --font-size-siteinfo: 14px;
-}
-
 body { font-weight: 400; }
 
-/* Masthead: no rule — the whitespace is the separation ------------------- */
+/* Masthead: tight, wordmark set live in Germano (the site's own logo face),
+   hides on scroll down and returns on scroll up ------------------------- */
 
-#logo { filter: invert(0.93); }
+#site-header {
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+#site-header.is-hidden { transform: translateY(-100%); }
 
+#logo { display: none; }
+.logo_container a::before {
+  content: "BACH ARCHITECTURE";
+  font-family: 'ger', 'Archivo', Helvetica, sans-serif;
+  font-size: 21px;
+  letter-spacing: 0.02em;
+  color: var(--color-text);
+  line-height: 1;
+}
+
+#site-nav { padding-top: 21px; }
+#top-menu > li > a { padding-bottom: 20px; }
 #top-menu a {
   font-weight: 500;
   font-size: 14px;
   letter-spacing: 0.06em;
 }
+#top-menu > li > a:hover { opacity: 1; color: var(--color-accent-text); }
 #top-menu li.current-menu-item > a,
 #top-menu li.current-menu-ancestor > a {
-  color: var(--color-text);
-  text-decoration: underline;
-  text-decoration-color: var(--color-accent-mark);
-  text-decoration-thickness: 2px;
-  text-underline-offset: 7px;
+  color: var(--color-accent-text);
 }
-#top-menu li li a { text-underline-offset: 4px; }
 
-/* Dropdowns: plain panels, shadow only, arrows brought inside ------------- */
-
-#top-menu li ul {
-  padding: 14px 0;
-  background-color: #ffffff;
-  border-top: 0;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-}
-#top-menu li li a {
-  width: auto;
-  padding: 6px 20px;
-  font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
-#top-menu li li.menu-item-has-children > a { padding-right: 28px; }
-#top-menu li li.menu-item-has-children > a::after { right: 14px; }
-#top-menu li li a:hover { background-color: rgba(0, 0, 0, 0.04); }
+/* No dropdowns: WORK and FIRM navigate to overview pages instead */
+#top-menu li ul { display: none !important; }
+#top-menu > li.menu-item-has-children > a { padding-right: 0; }
+#top-menu .menu-item-has-children > a::after { display: none; }
 
 /* Project title: quiet, monograph-scale ---------------------------------- */
 
-.band-title { padding-top: 56px; padding-bottom: 0; }
+.band-title { padding-top: 48px; padding-bottom: 0; }
 .band-title h4 {
   font-size: var(--font-size-h4);
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.06em;
   line-height: 1.3;
   padding-bottom: 0;
@@ -115,7 +95,6 @@ body { font-weight: 400; }
 .ba-thumb {
   height: 52px;
   margin: 0 8px 8px 0;
-  box-shadow: 0 0 0 1px rgba(17, 17, 16, 0.08);
   transition: opacity 160ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 #ba-thumbs:hover .ba-thumb { opacity: 0.55; }
@@ -126,7 +105,35 @@ body { font-weight: 400; }
   opacity: 1;
 }
 
-/* Info: whitespace instead of the rule ------------------------------------ */
+/* Work overview ----------------------------------------------------------- */
+
+.band-workindex .row { padding-top: 8px; }
+.wi-cat {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  padding: 40px 0 14px;
+}
+.wi-cat:first-child { padding-top: 0; }
+.wi-item:hover .wi-name { color: var(--color-accent-text); }
+
+/* Firm sub-navigation (About / Bio), hidden in Classic -------------------- */
+
+.firm-subnav {
+  display: flex;
+  gap: 28px;
+  padding-bottom: 32px;
+}
+.firm-subnav a {
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.firm-subnav a:hover { color: var(--color-accent-text); }
+.firm-subnav a.current { color: var(--color-accent-text); }
+
+/* Info: whitespace instead of rules --------------------------------------- */
 
 .band-info { padding-top: 72px; }
 .band-info .row { padding-top: 0; }
@@ -140,7 +147,6 @@ body { font-weight: 400; }
 }
 .band-info .col-1-3 strong + br,
 .band-info .col-1-3 b + br { display: none; }
-.band-info .col-1-3 { font-size: 14px; }
 .band-info .col-1-3 p { padding-bottom: 1.3em; }
 .band-info .col-1-3 hr { display: none; }
 
@@ -153,7 +159,8 @@ body { font-weight: 400; }
   letter-spacing: 0.06em;
 }
 
-/* Site info: split left / middle / right, no rule ------------------------- */
+/* Site info: left / middle / right on wide screens, a flush-left stack
+   below 1000px — the three segments never wrap mid-group ----------------- */
 
 .band-siteinfo .row {
   margin-top: 96px;
@@ -164,7 +171,7 @@ body { font-weight: 400; }
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  gap: 16px;
+  gap: 8px 32px;
   text-align: left;
 }
 .band-siteinfo .si-sep { display: none; }
@@ -175,7 +182,7 @@ body { font-weight: 400; }
 
 /* Home: photography close to the top -------------------------------------- */
 
-.band-home .row { padding-top: 40px; }
+.band-home .row { padding-top: 32px; }
 
 /* The lower-right render carries a pink/lavender cast the photographs
    don't; pull it toward the collage's muted neutrals */
@@ -184,28 +191,28 @@ body { font-weight: 400; }
 /* About / Bio / Contact --------------------------------------------------- */
 
 .band .row { padding-top: 40px; padding-bottom: 0; }
-.band-title .row, .band-gallery .row, .band-info .row { padding-bottom: 0; }
+.band-title .row, .band-gallery .row, .band-info .row, .band-workindex .row { padding-bottom: 0; }
 .bio-photo { min-height: 440px; }
 
-/* Style switcher: plain panel --------------------------------------------- */
+/* Style switcher ---------------------------------------------------------- */
 
 #style-switch .ss-panel {
-  background: #ffffff;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
+  background: var(--panel-bg);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
 }
 #style-switch .ss-panel button {
   font-size: 14px;
   font-weight: 500;
   letter-spacing: 0.06em;
 }
-#style-switch .ss-panel button:hover { background: rgba(0, 0, 0, 0.04); }
+#style-switch .ss-panel button:hover { background: var(--panel-hover); }
 #style-switch .ss-panel button[aria-pressed="true"] { color: var(--color-accent-text); }
 
 /* Interaction polish ------------------------------------------------------ */
 
 #top-menu a,
-#top-menu li ul,
 .press-logo a,
+.wi-img img,
 #style-switch .ss-toggle {
   transition-duration: 160ms;
   transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
@@ -216,20 +223,30 @@ body { font-weight: 400; }
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
   }
+  #site-header { transition: none; }
+  #site-header.is-hidden { transform: none; }
 }
 
 /* Responsive -------------------------------------------------------------- */
 
+@media all and (max-width: 1000px) {
+  .band-siteinfo p {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  .band-siteinfo .row { margin-top: 64px; }
+}
+
 @media all and (max-width: 980px) {
   #site-nav.open {
     border-top: 0;
-    background: #ffffff;
+    background: var(--panel-bg);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
   }
-  #site-nav.open #top-menu a { border-bottom-color: rgba(17, 17, 16, 0.06); }
-  .band-title { padding-top: 36px; }
+  #site-nav.open #top-menu a { border-bottom-color: var(--keyline); }
+  .band-title { padding-top: 32px; }
   .band-info { padding-top: 48px; }
-  .band-siteinfo p { flex-direction: column; gap: 4px; align-items: flex-start; }
 }
 
 @media screen and (max-width: 1024px) {
@@ -244,5 +261,5 @@ body { font-weight: 400; }
   }
   #ba-thumbs { width: 100%; margin-top: 14px; }
   .ba-thumb { height: 30px; margin: 0 4px 4px 0; }
-  .band-title { padding-top: 28px; }
+  .band-title { padding-top: 24px; }
 }

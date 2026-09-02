@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Media Cabinet | Bach Architecture</title>
 <link rel="stylesheet" href="../../../css/style.css">
-<script>try{if(localStorage.getItem('ba-theme')==='refined'){var l=document.createElement('link');l.rel='stylesheet';l.id='refined-css';l.href=document.querySelector('link[rel="stylesheet"]').getAttribute('href').replace('style.css','refined.css');document.head.appendChild(l);document.documentElement.setAttribute('data-theme','refined')}}catch(e){}</script>
+<script>try{var t=localStorage.getItem('ba-theme');if(t==='refined')t='light';if(t==='light'||t==='dark'){var b=document.querySelector('link[rel="stylesheet"]');var l=document.createElement('link');l.rel='stylesheet';l.id='theme-css';l.href=b.getAttribute('href').replace('style.css',t+'.css');document.head.appendChild(l);document.documentElement.setAttribute('data-theme',t)}}catch(e){}</script>
 </head>
 <body>
 <div id="page-container">
@@ -19,7 +19,7 @@
     <nav id="site-nav">
       <ul id="top-menu">
         <li><a href="../../../">HOME</a></li>
-        <li class="menu-item-has-children current-menu-ancestor"><a href="#">WORK</a>
+        <li class="menu-item-has-children current-menu-ancestor"><a href="../../../work/">WORK</a>
           <ul>
             <li class="menu-item-has-children"><a href="#">RESIDENTIAL</a>
               <ul>
@@ -67,7 +67,7 @@
             </li>
           </ul>
         </li>
-        <li class="menu-item-has-children"><a href="#">FIRM</a>
+        <li class="menu-item-has-children"><a href="../../../about/">FIRM</a>
           <ul>
             <li><a href="../../../about/">ABOUT</a></li>
             <li><a href="../../../about/bio/">BIO</a></li>
@@ -121,12 +121,13 @@
 
 </div>
 <div id="style-switch">
-  <button class="ss-toggle" aria-label="Style options" aria-haspopup="true">
-    <svg viewBox="0 0 18 18" aria-hidden="true"><rect x="1" y="5" width="12" height="12"/><rect x="5" y="1" width="12" height="12"/></svg>
+  <button class="ss-toggle" aria-label="Display options" aria-haspopup="true">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M1 23h22V1H1zm4.06-3L20 5.06V20zM18.94 4 4 18.94V4z"/><path fill="currentColor" d="M7.25 11h1.5V8.75H11v-1.5H8.75V5h-1.5v2.25H5v1.5h2.25zM13 15.25h6v1.5h-6z"/></svg>
   </button>
   <div class="ss-panel">
-    <button data-theme="original" aria-pressed="true">Original</button>
-    <button data-theme="refined" aria-pressed="false">Refined</button>
+    <button data-theme="classic" aria-pressed="true"><span class="swatch" style="background:#7e7e7e"></span><span>Classic</span></button>
+    <button data-theme="light" aria-pressed="false"><span class="swatch" style="background:#f4f4f4"></span><span>Light</span></button>
+    <button data-theme="dark" aria-pressed="false"><span class="swatch" style="background:#6a6a6a"></span><span>Dark</span></button>
   </div>
 </div>
 <script src="../../../js/site.js"></script>

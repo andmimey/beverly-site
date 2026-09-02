@@ -19,32 +19,40 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Style switcher: swaps the Refined override stylesheet in and out.
-  // A head snippet applies the saved choice before first paint; this
-  // only wires the buttons and reflects the active state.
+  var header = document.getElementById('site-header');
+
+  // Theme switcher: Classic (the faithful replica) is the bare stylesheet;
+  // Light and Dark load their token sheet on top. A head snippet applies
+  // the saved choice before first paint; this wires the buttons.
   var switcher = document.getElementById('style-switch');
   if (switcher) {
     var buttons = switcher.querySelectorAll('.ss-panel button');
+    var normalize = function (t) {
+      if (t === 'refined') return 'light';
+      if (t === 'original') return 'classic';
+      return (t === 'light' || t === 'dark') ? t : 'classic';
+    };
     var reflect = function (theme) {
       buttons.forEach(function (b) {
         b.setAttribute('aria-pressed', String(b.getAttribute('data-theme') === theme));
       });
     };
     var apply = function (theme) {
-      var link = document.getElementById('refined-css');
-      if (theme === 'refined') {
+      var link = document.getElementById('theme-css');
+      if (theme === 'light' || theme === 'dark') {
+        var base = document.querySelector('link[rel="stylesheet"]');
         if (!link) {
-          var base = document.querySelector('link[rel="stylesheet"]');
           link = document.createElement('link');
           link.rel = 'stylesheet';
-          link.id = 'refined-css';
-          link.href = base.getAttribute('href').replace('style.css', 'refined.css');
+          link.id = 'theme-css';
           document.head.appendChild(link);
         }
-        document.documentElement.setAttribute('data-theme', 'refined');
+        link.href = base.getAttribute('href').replace('style.css', theme + '.css');
+        document.documentElement.setAttribute('data-theme', theme);
       } else {
         if (link) link.remove();
         document.documentElement.removeAttribute('data-theme');
+        if (header) header.classList.remove('is-hidden');
       }
       try { localStorage.setItem('ba-theme', theme); } catch (e) {}
       reflect(theme);
@@ -52,10 +60,22 @@ document.addEventListener('DOMContentLoaded', function () {
     buttons.forEach(function (b) {
       b.addEventListener('click', function () { apply(b.getAttribute('data-theme')); });
     });
-    var current = 'original';
-    try { current = localStorage.getItem('ba-theme') || 'original'; } catch (e) {}
+    var current = 'classic';
+    try { current = normalize(localStorage.getItem('ba-theme')); } catch (e) {}
     reflect(current);
   }
+
+  // Light/Dark studies: the header slips away on scroll down and returns
+  // on scroll up (Classic keeps its always-fixed header).
+  var lastY = window.scrollY;
+  window.addEventListener('scroll', function () {
+    if (!header) return;
+    if (!document.documentElement.hasAttribute('data-theme')) return;
+    var y = window.scrollY;
+    if (y > lastY && y > 140) header.classList.add('is-hidden');
+    else if (y < lastY - 2 || y < 80) header.classList.remove('is-hidden');
+    lastY = y;
+  }, { passive: true });
 });
 
 window.addEventListener('load', function () {

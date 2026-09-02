@@ -30,26 +30,22 @@ python3 -m http.server 8000
 # open http://localhost:8000
 ```
 
-## Themes / variations
+## Themes
 
-A small corner icon (bottom-right, hover to open) switches between themes; the
-choice persists per browser via localStorage and applies before first paint.
+A corner icon (bottom-right, hover to open) switches between three options,
+persisted per browser and applied before first paint:
 
-- **Original** (`css/style.css`): faithful transcription of the live Divi site —
-  gray `#7e7e7e` ground, `#686868` title bands, Abel 14px, orange `#f48b2e`
-  current-nav highlight, 99px fixed header, left-opening sub-sub menus,
-  hover-to-swap galleries.
-- **Refined** (`css/refined.css`): architecture-monograph register (TASCHEN's
-  Neutra volume as reference). Near-white ground with charcoal Archivo
-  grotesque at small sizes, near-flat hierarchy, no divider lines (whitespace
-  does the separating), everything flush-left, the gallery as a full-width
-  plate with a contact-sheet strip, footer split left/middle/right, and the
-  identity orange as the single accent. WCAG AA contrast, reduced-motion
-  respected. CSS-only: same markup.
+- **Classic** (`css/style.css`): faithful replica of the live Divi site,
+  including its hover dropdowns and fixed header.
+- **Light** / **Dark** (`css/light.css`, `css/dark.css` + shared
+  `css/study.css`): monograph-register studies. One typeface (Archivo) at one
+  size with weight-only hierarchy, purely neutral grey grounds (#f4f4f4 /
+  #6a6a6a), the wordmark set live in Germano (the site's own logo face),
+  orange words for current/hover states, no rules and no image borders,
+  a tight masthead that hides on scroll down and returns on scroll up,
+  and a `work/` overview page instead of dropdown menus.
 
-To add another variation, copy `css/refined.css`, adjust tokens/overrides, and add
-a button to the switcher panel (`data-theme` name) in the shared page footer.
-See `PRODUCT.md` and `DESIGN.md` for the strategic and visual context.
+See `DESIGN.md` for the full system, `PRODUCT.md` for strategy.
 
 ## Publishing (GitHub Pages)
 

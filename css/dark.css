@@ -1,0 +1,30 @@
+/* ==========================================================================
+   Bach Architecture — Dark study.
+   White text on a considered medium gray (the mood of the current site,
+   with the value tuned so type sits comfortably). Tokens only; structure
+   in study.css.
+   ========================================================================== */
+
+@import url('study.css');
+
+:root {
+  --color-bg: #6a6a6a;
+  --color-band-title: #6a6a6a;
+  --color-header-bg: #6a6a6a;
+  --color-text: #ffffff;
+  --color-link: #ffffff;
+  --color-submenu-link: #ffffff;
+  --color-accent-mark: #ffb877;        /* ≥3:1 mark orange on the gray */
+  --color-accent-text: #ffb877;
+  --keyline: rgba(255, 255, 255, 0.16);
+  --panel-bg: #565656;
+  --panel-hover: rgba(255, 255, 255, 0.06);
+
+  --font-body: 'Archivo', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-size-body: 14px;
+  --line-height-body: 1.6;
+  --font-size-h4: 14px;
+  --font-size-siteinfo: 14px;
+
+  --header-height: 64px;
+}
