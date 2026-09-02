@@ -158,6 +158,7 @@ a:hover { color: var(--color-accent-text); }
 .band-workindex .row { padding-top: var(--m); }
 .wi-cat {
   font-size: 14px;
+  font-weight: 400;
   letter-spacing: 0.06em;
   padding: var(--l) 0 var(--m);
 }
@@ -193,15 +194,15 @@ a:hover { color: var(--color-accent-text); }
 .band-info { padding-top: var(--l); }
 .band-info .row { padding-top: 0; }
 
-.band-info .col-1-3 strong,
-.band-info .col-1-3 b {
+.col-1-3 strong,
+.col-1-3 b {
   display: block;
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.06em;
 }
-.band-info .col-1-3 strong + br,
-.band-info .col-1-3 b + br { display: none; }
+.col-1-3 strong + br,
+.col-1-3 b + br { display: none; }
 .band-info .col-1-3 p { padding-bottom: var(--m); }
 .band-info .col-1-3 hr { display: none; }
 
@@ -209,7 +210,7 @@ a:hover { color: var(--color-accent-text); }
   max-width: 60ch;
   text-wrap: pretty;
 }
-.band-info .col-2-3 strong { letter-spacing: 0.06em; }
+.col-2-3 strong { letter-spacing: 0.06em; }
 
 /* Site info: left / middle / right on wide screens, a flush-left stack
    below 1000px — the three segments never wrap mid-group ----------------- */

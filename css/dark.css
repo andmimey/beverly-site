@@ -8,18 +8,18 @@
 @import url('study.css');
 
 :root {
-  --color-bg: #616161;
-  --bg-top: #656565;
-  --bg-bottom: #5c5c5c;
-  --color-band-title: #616161;
-  --color-header-bg: #656565;
+  --color-bg: #666666;
+  --bg-top: #6a6a6a;
+  --bg-bottom: #616161;
+  --color-band-title: #666666;
+  --color-header-bg: #6a6a6a;
   --color-text: #ffffff;
   --color-link: #ffffff;
   --color-submenu-link: #ffffff;
   --color-accent-mark: #ff9433;        /* the pop orange, marks */
   --color-accent-text: #ff9433;      /* vivid on the gray — pop over strict AA, per direction */
   --keyline: rgba(255, 255, 255, 0.16);
-  --panel-bg: #4f4f4f;
+  --panel-bg: #545454;
   --panel-hover: rgba(255, 255, 255, 0.06);
 
   --font-body: 'Archivo', 'Helvetica Neue', Helvetica, Arial, sans-serif;
